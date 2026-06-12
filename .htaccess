@@ -19,8 +19,8 @@
     Header set Referrer-Policy "strict-origin-when-cross-origin"
     Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), sync-xhr=()"
     Header set X-Permitted-Cross-Domain-Policies "none"
-    Header set Expect-CT "max-age=86400, enforce"
     Header set Cross-Origin-Resource-Policy "same-origin"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
     Header set X-Frame-Options "SAMEORIGIN"
     Header set X-Content-Type-Options "nosniff"
     Header set X-XSS-Protection "1; mode=block"
@@ -42,15 +42,10 @@
 </IfModule>
 
 # ============================================
-# BLOCK BAD BOTS AND SUSPICIOUS REQUESTS
+# BLOCK SUSPICIOUS REQUESTS
 # ============================================
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    
-    # Block bad bots
-    RewriteCond %{HTTP_USER_AGENT} ^.*(bot|crawl|spider|scrape|harvest).*$ [NC]
-    RewriteCond %{HTTP_USER_AGENT} !^.*(Googlebot|bingbot|Slurp|DuckDuckBot).*$ [NC]
-    RewriteRule .* - [F,L]
     
     # Block SQL injection attempts
     RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
@@ -161,14 +156,6 @@ Options -Indexes
 ErrorDocument 404 /404.html
 ErrorDocument 403 /403.html
 ErrorDocument 500 /500.html
-
-# ============================================
-# FILE UPLOAD LIMITS
-# ============================================
-php_value upload_max_filesize 10M
-php_value post_max_size 10M
-php_value max_execution_time 300
-php_value max_input_time 300
 
 # ============================================
 # DISABLE SERVER SIGNATURE
