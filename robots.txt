@@ -1,0 +1,11 @@
+# robots.txt for AAYUNEX Innovations - Fuel Guard X
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://aayunexinnovations.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

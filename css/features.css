@@ -1,0 +1,195 @@
+/* ============================================================
+   FUEL GUARD X — Features Page Styles
+   features.css
+   ============================================================ */
+
+.features-hero {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-top: 72px;
+  position: relative;
+}
+
+.features-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 70%, rgba(249, 115, 22, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.features-hero-content {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.features-hero h1 { margin-bottom: 1rem; }
+
+/* Category Sections */
+.feature-category {
+  margin-bottom: 1rem;
+}
+
+.feature-category-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.feature-category-label .category-line {
+  width: 40px;
+  height: 2px;
+  background-color: var(--accent-orange);
+}
+
+.features-full-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.feature-detail-card {
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-base);
+}
+
+.feature-detail-card:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-detail-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background-color: var(--accent-orange-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-orange);
+  font-size: 1.375rem;
+  margin-bottom: 1.25rem;
+}
+
+.feature-detail-icon i,
+.feature-detail-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2px;
+}
+
+.feature-detail-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin-bottom: 0.5rem;
+}
+
+.feature-detail-card p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.feature-benefit {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  color: var(--accent-orange);
+  font-weight: 500;
+}
+
+.feature-benefit::before {
+  content: '→';
+}
+
+/* Light variant */
+.section-light .feature-detail-card {
+  background-color: #fff;
+  border-color: var(--border-dark);
+}
+
+.section-light .feature-detail-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+
+.section-light .feature-detail-card h3 { color: var(--text-dark); }
+.section-light .feature-detail-card p { color: var(--text-dark-secondary); }
+
+/* Comparison / Why Fuel Guard X */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.why-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.why-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.why-item-number {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background-color: var(--accent-orange);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.why-item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin-bottom: 0.25rem;
+}
+
+.why-item p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+
+@media (max-width: 1024px) {
+  .features-full-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .features-hero { min-height: auto; padding-top: 100px; padding-bottom: 2rem; }
+  .features-full-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+}
+
+@media (max-width: 480px) {
+  .feature-detail-card { padding: 1.5rem; }
+  .why-item { flex-direction: column; }
+  .why-item-number { margin-bottom: 0.5rem; }
+}

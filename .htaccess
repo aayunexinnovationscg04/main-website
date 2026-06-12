@@ -1,0 +1,181 @@
+# AAYUNEX Innovations - .htaccess Configuration
+# Security, Performance, and SEO Optimization
+
+# ============================================
+# SECURITY HEADERS
+# ============================================
+
+# Prevent clickjacking attacks
+<IfModule mod_headers.c>
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Content Security Policy
+    Header set Content-Security-Policy "default-src 'self' https:; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://unpkg.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests; block-all-mixed-content;"
+
+    # Additional security headers
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), sync-xhr=()"
+    Header set X-Permitted-Cross-Domain-Policies "none"
+    Header set Expect-CT "max-age=86400, enforce"
+    Header set Cross-Origin-Resource-Policy "same-origin"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header unset Server
+    Header unset X-Powered-By
+</IfModule>
+
+# ============================================
+# FORCE HTTPS REDIRECT
+# ============================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Redirect www to non-www (or vice versa)
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+</IfModule>
+
+# ============================================
+# BLOCK BAD BOTS AND SUSPICIOUS REQUESTS
+# ============================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Block bad bots
+    RewriteCond %{HTTP_USER_AGENT} ^.*(bot|crawl|spider|scrape|harvest).*$ [NC]
+    RewriteCond %{HTTP_USER_AGENT} !^.*(Googlebot|bingbot|Slurp|DuckDuckBot).*$ [NC]
+    RewriteRule .* - [F,L]
+    
+    # Block SQL injection attempts
+    RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+    RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# ============================================
+# PREVENT DIRECTORY BROWSING
+# ============================================
+Options -Indexes
+
+# ============================================
+# PROTECT SENSITIVE FILES
+# ============================================
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|bak|config)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# ============================================
+# PERFORMANCE OPTIMIZATION
+# ============================================
+
+# Enable Gzip Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml
+</IfModule>
+
+# Browser Caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Images
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # CSS and JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # Fonts
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # HTML
+    ExpiresByType text/html "access plus 1 hour"
+    
+    # Default
+    ExpiresDefault "access plus 1 month"
+</IfModule>
+
+# Cache-Control Headers
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|ico)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+    
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
+    
+    <FilesMatch "\.(woff|woff2|ttf|otf)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+    
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "max-age=3600, public, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+# ============================================
+# SEO FRIENDLY REDIRECTS
+# ============================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Remove .html extension for cleaner URLs
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.html -f
+    RewriteRule ^(.*)$ $1.html [L]
+    
+    # Redirect index.html to root
+    RewriteCond %{THE_REQUEST} ^.*/index\.html
+    RewriteRule ^(.*)index\.html$ /$1 [R=301,L]
+    
+    # Remove trailing slashes
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [R=301,L]
+</IfModule>
+
+# ============================================
+# ERROR PAGES
+# ============================================
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+ErrorDocument 500 /500.html
+
+# ============================================
+# FILE UPLOAD LIMITS
+# ============================================
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 300
+php_value max_input_time 300
+
+# ============================================
+# DISABLE SERVER SIGNATURE
+# ============================================
+ServerSignature Off
+
+# ============================================
+# UTF-8 ENCODING
+# ============================================
+AddDefaultCharset UTF-8
