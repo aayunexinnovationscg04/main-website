@@ -8,7 +8,7 @@
   min-height: 85vh;
   display: flex;
   align-items: center;
-  padding-top: 72px;
+  padding-top: 92px;
   position: relative;
   overflow: hidden;
 }
@@ -140,7 +140,7 @@
 }
 
 .product-status-left .status-icon {
-  color: #22c55e;
+  color: var(--color-success);
   font-size: 0.75rem;
 }
 
@@ -166,8 +166,8 @@
 .ecosystem-card {
   padding: 2.5rem 2rem;
   border-radius: var(--radius-md);
-  background-color: #fff;
-  border: 1px solid var(--border-dark);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   transition: all var(--transition-base);
 }
 
@@ -447,7 +447,7 @@
 /* Responsive */
 @media (max-width: 1024px) {
   .product-hero-grid { grid-template-columns: 1fr; }
-  .product-hero-visual { justify-content: center; order: -1; }
+  .product-hero-visual { justify-content: center; }
   .product-visual-box { max-width: 380px; }
   .ecosystem-cards { grid-template-columns: 1fr; }
   .tech-grid { grid-template-columns: repeat(2, 1fr); }

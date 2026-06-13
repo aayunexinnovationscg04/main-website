@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  padding-top: 72px;
+  padding-top: 92px;
   position: relative;
 }
 
@@ -117,8 +117,8 @@
 
 /* Light variant */
 .section-light .feature-detail-card {
-  background-color: #fff;
-  border-color: var(--border-dark);
+  background-color: var(--bg-card);
+  border-color: var(--border-subtle);
 }
 
 .section-light .feature-detail-card:hover {
@@ -185,7 +185,11 @@
 
 @media (max-width: 768px) {
   .features-hero { min-height: auto; padding-top: 100px; padding-bottom: 2rem; }
-  .features-full-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .features-full-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .features-full-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
 }
 
 @media (max-width: 480px) {

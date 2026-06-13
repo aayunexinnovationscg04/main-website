@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  padding-top: 72px;
+  padding-top: 92px;
   position: relative;
 }
 
@@ -39,10 +39,10 @@
 
 /* Contact Form Panel */
 .contact-form-panel {
-  background-color: #fff;
+  background-color: var(--bg-card);
   border-radius: var(--radius-lg);
   padding: 2.5rem;
-  border: 1px solid var(--border-dark);
+  border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-card);
 }
 
@@ -67,22 +67,22 @@
 .contact-form-panel .form-input,
 .contact-form-panel .form-textarea,
 .contact-form-panel .form-select {
-  background-color: #f8f8f8;
-  border-color: rgba(0, 0, 0, 0.1);
-  color: var(--text-dark);
+  background-color: var(--bg-elevated);
+  border-color: var(--border-medium);
+  color: var(--text-primary);
 }
 
 .contact-form-panel .form-input:focus,
 .contact-form-panel .form-textarea:focus,
 .contact-form-panel .form-select:focus {
   border-color: var(--accent-orange);
-  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
-  background-color: #fff;
+  box-shadow: 0 0 0 3px var(--orange-glow);
+  background-color: var(--bg-card);
 }
 
 .contact-form-panel .form-input::placeholder,
 .contact-form-panel .form-textarea::placeholder {
-  color: #999;
+  color: var(--text-muted);
 }
 
 .contact-form-panel .btn-primary {
@@ -181,8 +181,8 @@
 .contact-info-card {
   padding: 2rem;
   border-radius: var(--radius-md);
-  background-color: #fff;
-  border: 1px solid var(--border-dark);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   transition: all var(--transition-base);
   position: relative;
   overflow: hidden;

@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  padding-top: 72px;
+  padding-top: 92px;
   position: relative;
   overflow: hidden;
 }
@@ -60,8 +60,8 @@
 .about-problem-card {
   padding: 1.5rem;
   border-radius: var(--radius-md);
-  background-color: #fff;
-  border: 1px solid var(--border-dark);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   transition: all var(--transition-base);
 }
 
@@ -307,10 +307,16 @@
 
 @media (max-width: 768px) {
   .about-hero { min-height: auto; padding-top: 100px; padding-bottom: 2rem; }
-  .about-team-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-  .partners-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+  .about-team-grid { grid-template-columns: repeat(2, 1fr); }
+  .partners-grid { grid-template-columns: repeat(2, 1fr); max-width: 480px; margin: 0 auto; }
   .about-cta { padding: 2.5rem 1.5rem; }
-  .about-team-photo { height: 240px; }
+  .about-team-photo { height: 220px; }
+}
+
+@media (max-width: 540px) {
+  .about-team-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+  .partners-grid { grid-template-columns: 1fr; max-width: 280px; }
+  .about-team-photo { height: 200px; }
 }
 
 @media (max-width: 480px) {

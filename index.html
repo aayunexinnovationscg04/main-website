@@ -9,7 +9,7 @@
   gtag('js', new Date());
   gtag('config', 'G-K6VLQJJ01R');
   </script>
-  
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="geo.region" content="IN-CT">
@@ -76,26 +76,23 @@
   }
   </script>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/logo/removed_bg_logo.png">
-  
-  <!-- Preload Critical Assets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="preload" href="css/main.css" as="style">
   <link rel="preload" href="css/home.css" as="style">
-  <link rel="preload" href="https://unpkg.com/lucide@latest" as="script">
 
-  <!-- Stylesheets -->
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/home.css">
-  
-  <!-- Lucide Icons -->
+
   <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body>
 
   <!-- ============================================================
        NAVBAR
-       ============================================================ -->
+  ============================================================ -->
   <nav class="navbar" id="navbar">
     <div class="navbar-inner">
       <a href="index.html" class="navbar-logo">
@@ -111,11 +108,9 @@
         <a href="about.html">About</a>
       </div>
 
-      <!-- Theme Switcher in Navbar -->
       <div class="navbar-theme-switcher">
-        <button class="theme-dot active" data-theme="light" aria-label="Light Theme" title="Light Theme"></button>
-        <button class="theme-dot" data-theme="orange" aria-label="Orange Theme" title="Orange Theme"></button>
-        <button class="theme-dot" data-theme="dark" aria-label="Dark Theme" title="Dark Theme"></button>
+        <button class="theme-dot" data-theme="light" aria-label="Light Theme" title="Light Theme"></button>
+        <button class="theme-dot" data-theme="dark"  aria-label="Dark Theme"  title="Dark Theme"></button>
       </div>
 
       <div class="navbar-cta">
@@ -142,140 +137,253 @@
     <a href="about.html">About</a>
     <div class="mobile-menu-divider"></div>
     <a href="contact.html" class="btn btn-primary">Contact Us</a>
-    
-    <!-- Mobile Theme Switcher -->
+
     <div class="mobile-theme-switcher">
       <span class="mobile-theme-switcher-label">Theme</span>
       <div class="mobile-theme-buttons">
-        <button class="mobile-theme-btn active" data-theme="light">
-          <div class="theme-preview" style="background: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%);"></div>
+        <button class="mobile-theme-btn" data-theme="light">
+          <div class="theme-preview" style="background: linear-gradient(135deg, #ffffff 0%, #dce9ff 100%);"></div>
           <span class="theme-name">Light</span>
         </button>
-        <button class="mobile-theme-btn" data-theme="orange">
-          <div class="theme-preview" style="background: linear-gradient(135deg, #ff8c42 0%, #e67700 100%);"></div>
-          <span class="theme-name">Orange</span>
-        </button>
         <button class="mobile-theme-btn" data-theme="dark">
-          <div class="theme-preview" style="background: linear-gradient(135deg, #0b1c30 0%, #031427 100%);"></div>
+          <div class="theme-preview" style="background: linear-gradient(135deg, #0b1d35 0%, #040c18 100%);"></div>
           <span class="theme-name">Dark</span>
         </button>
       </div>
     </div>
   </div>
-  
-  <!-- Mobile Menu Backdrop -->
+
   <div class="navbar-mobile-backdrop" id="navbar-mobile-backdrop"></div>
 
 
   <!-- ============================================================
        HERO SECTION
-       ============================================================ -->
+  ============================================================ -->
   <section class="hero section-dark" id="hero">
+    <!-- Background decorators -->
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-glow-line"></div>
+
     <div class="container">
       <div class="hero-inner">
+
+        <!-- Left: Content -->
         <div class="hero-content">
-          <div class="hero-badge">
-            <span class="badge badge-orange badge-dot badge-pulse">Fuel Intelligence Platform</span>
+          <div class="hero-badge-row">
+            <span class="hero-pill">
+              <span class="pill-dot"></span>
+              AI-Powered Platform
+            </span>
+            <span class="hero-award-chip">🏆 5+ National Awards</span>
           </div>
 
-          <h1 class="headline-xl hero-title">
-            AI-Powered Fuel<br>
-            <span class="text-orange">Intelligence</span> &amp; Theft<br>
-            Detection System
+          <h1 class="hero-headline">
+            Stop Fuel Theft.<br>
+            <span class="text-gradient">Gain Full Control.</span>
           </h1>
 
           <p class="hero-subtitle">
-            Real-time fuel monitoring, theft prevention, and fuel verification platform for commercial vehicles and fleet operators.
+            Precision ultrasonic sensors, AI anomaly detection, and real-time fleet intelligence — purpose-built for commercial vehicles where every litre counts.
           </p>
 
           <div class="hero-cta">
             <a href="contact.html#demo" class="btn btn-primary btn-lg">
+              <i data-lucide="play-circle"></i>
               Request Demo
-              <span class="btn-icon">→</span>
             </a>
-            <a href="product.html" class="btn btn-secondary btn-lg">
+            <a href="product.html" class="btn btn-outline btn-lg">
               View Product
+              <i data-lucide="arrow-right"></i>
             </a>
           </div>
 
           <div class="hero-stats">
-            <div class="stat">
-              <span class="stat-value">Proven</span>
-              <span class="stat-label">Award-Winning Team</span>
+            <div class="hero-stat">
+              <span class="hero-stat-value" data-count="5" data-suffix="+">5+</span>
+              <span class="hero-stat-label">National Awards</span>
             </div>
-            <div class="stat">
-              <span class="stat-value">Active</span>
-              <span class="stat-label">Innovation Pipeline</span>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-value" data-count="3">3</span>
+              <span class="hero-stat-label">Govt. Recognitions</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-value">AI</span>
+              <span class="hero-stat-label">Deep Tech Core</span>
             </div>
           </div>
         </div>
 
+        <!-- Right: Dashboard Visual -->
         <div class="hero-visual reveal-scale">
-          <div class="hero-dashboard-mockup">
-            <!-- Inline dashboard mock -->
-            <div class="dashboard-mock" style="padding:1rem; min-height:320px;">
-              <div class="dashboard-mock-topbar">
-                <span class="mock-logo"><i data-lucide="gauge" style="width:20px; height:20px;"></i> Fuel Guard X</span>
-                <span class="mock-status"><i data-lucide="check-circle" style="width:16px; height:16px; color:#22c55e;"></i> System Active</span>
+          <div class="hero-mockup-wrap">
+            <div class="hero-mockup">
+
+              <!-- App header — visible first on mobile -->
+              <div class="mockup-topbar">
+                <div class="mockup-app-brand">
+                  <div class="mockup-app-icon">
+                    <i data-lucide="flame"></i>
+                  </div>
+                  <div class="mockup-app-info">
+                    <span class="mockup-app-name">Fuel Guard X</span>
+                    <span class="mockup-app-co">by AAYUNEX Innovations</span>
+                  </div>
+                </div>
+                <span class="mockup-live-badge">
+                  <span class="live-pulse"></span>
+                  Live
+                </span>
               </div>
-              <div class="mock-stat-card">
-                <div class="mock-label"><i data-lucide="droplet" style="width:16px; height:16px;"></i> Fuel Level</div>
-                <div class="mock-value">78.4L</div>
-                <div class="mock-change"><i data-lucide="minus" style="width:14px; height:14px;"></i> Stable</div>
-              </div>
-              <div class="mock-stat-card">
-                <div class="mock-label"><i data-lucide="zap" style="width:16px; height:16px;"></i> Efficiency</div>
-                <div class="mock-value">4.2 km/L</div>
-                <div class="mock-change"><i data-lucide="check" style="width:14px; height:14px;"></i> Optimal</div>
-              </div>
-              <div class="mock-stat-card">
-                <div class="mock-label"><i data-lucide="alert-circle" style="width:16px; height:16px;"></i> Alerts Today</div>
-                <div class="mock-value">0</div>
-                <div class="mock-change"><i data-lucide="shield-check" style="width:14px; height:16px;"></i> All Clear</div>
-              </div>
-              <div class="mock-chart" style="grid-column: 1/-1;">
-                <div class="mock-label"><i data-lucide="bar-chart-2" style="width:16px; height:16px;"></i> Fuel Consumption - Last 12 Hours</div>
-                <div class="mock-chart-bars">
-                  <div class="mock-bar" style="height:8px;"></div>
-                  <div class="mock-bar" style="height:8px;"></div>
-                  <div class="mock-bar" style="height:8px;"></div>
-                  <div class="mock-bar" style="height:8px;"></div>
-                  <div class="mock-bar" style="height:8px;"></div>
-                  <div class="mock-bar" style="height:8px;"></div>
-                  <div class="mock-bar" style="height:8px;"></div>
-                  <div class="mock-bar" style="height:8px;"></div>
-                  <div class="mock-bar" style="height:8px;"></div>
-                  <div class="mock-bar" style="height:8px;"></div>
-                  <div class="mock-bar" style="height:8px;"></div>
-                  <div class="mock-bar" style="height:8px;"></div>
+
+              <!-- Body -->
+              <div class="mockup-body">
+
+                <!-- Sidebar -->
+                <div class="mockup-sidebar">
+                  <button class="sidebar-icon-btn active" title="Dashboard">
+                    <i data-lucide="gauge"></i>
+                  </button>
+                  <button class="sidebar-icon-btn" title="Activity">
+                    <i data-lucide="activity"></i>
+                  </button>
+                  <button class="sidebar-icon-btn" title="Map">
+                    <i data-lucide="map-pin"></i>
+                  </button>
+                  <button class="sidebar-icon-btn" title="Alerts">
+                    <i data-lucide="bell"></i>
+                  </button>
+                  <button class="sidebar-icon-btn" title="Settings">
+                    <i data-lucide="settings"></i>
+                  </button>
+                </div>
+
+                <!-- Main Content -->
+                <div class="mockup-main">
+                  <div class="mockup-header">
+                    <span class="mockup-title">Fleet Overview</span>
+                    <span class="mockup-status-dot"></span>
+                  </div>
+
+                  <!-- KPIs -->
+                  <div class="mockup-kpis">
+                    <div class="mockup-kpi">
+                      <div class="kpi-icon blue"><i data-lucide="droplet"></i></div>
+                      <div>
+                        <div class="kpi-val">78.4L</div>
+                        <div class="kpi-label">Fuel Level</div>
+                      </div>
+                    </div>
+                    <div class="mockup-kpi">
+                      <div class="kpi-icon green"><i data-lucide="zap"></i></div>
+                      <div>
+                        <div class="kpi-val">4.2k/L</div>
+                        <div class="kpi-label">Efficiency</div>
+                      </div>
+                    </div>
+                    <div class="mockup-kpi">
+                      <div class="kpi-icon indigo"><i data-lucide="shield-check"></i></div>
+                      <div>
+                        <div class="kpi-val">0</div>
+                        <div class="kpi-label">Alerts</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Chart -->
+                  <div class="mockup-chart">
+                    <div class="mockup-chart-label">
+                      <i data-lucide="bar-chart-2"></i>
+                      Consumption — Last 12h
+                    </div>
+                    <div class="mockup-chart-bars" id="hero-chart-bars">
+                      <div class="mcb"     style="--h:42%"></div>
+                      <div class="mcb alt" style="--h:68%"></div>
+                      <div class="mcb"     style="--h:50%"></div>
+                      <div class="mcb alt" style="--h:82%"></div>
+                      <div class="mcb"     style="--h:58%"></div>
+                      <div class="mcb alt" style="--h:72%"></div>
+                      <div class="mcb"     style="--h:45%"></div>
+                      <div class="mcb alt" style="--h:88%"></div>
+                      <div class="mcb"     style="--h:60%"></div>
+                      <div class="mcb alt" style="--h:76%"></div>
+                      <div class="mcb"     style="--h:48%"></div>
+                      <div class="mcb alt" style="--h:92%"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- Floating status badge -->
-          <div class="hero-status-badge">
-            <span class="hero-status-dot"></span>
-            <span><i data-lucide="shield" style="width:14px; height:14px;"></i> Active &amp; Secured</span>
-            <small>Fleet Monitor</small>
+
+            <!-- Floating status badges -->
+            <div class="hero-float-badge float-badge-1">
+              <span class="float-badge-dot green"></span>
+              System Active
+            </div>
+            <div class="hero-float-badge float-badge-2">
+              <i data-lucide="shield-check" class="float-badge-icon"></i>
+              Theft Blocked
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
 
   <!-- ============================================================
-       TRUSTED BY SECTION
-       ============================================================ -->
-  <section class="trusted-section section-dark" id="trusted-by">
+       TRUSTED BY
+  ============================================================ -->
+  <section class="trusted-section" id="trusted-by">
     <div class="container">
       <p class="logo-strip-label reveal">Backed by Elite Institutions</p>
       <div class="logo-strip reveal reveal-delay-1">
-        <img src="assets/partners/Startup_Logo_Colour_PNG.png" alt="Startup India" title="Startup India" loading="lazy" width="120" height="60">
-        <img src="assets/partners/msme-micro-small-medium-enterprises-logo-png_seeklogo-259373.png" alt="MSME" title="MSME" loading="lazy" width="120" height="60">
-        <img src="assets/partners/CSVTU FORTE LOGO.jpeg" alt="CSVTU FORTE" title="CSVTU FORTE" style="border-radius:4px;" loading="lazy" width="120" height="60">
-        <img src="assets/partners/OIC-Letterhead Logo.png" alt="OPJU Innovation Center" title="OPJU Innovation Center" loading="lazy" width="120" height="60">
-        <img src="assets/partners/dpiit logo.jpeg" alt="DPIIT" title="DPIIT" style="border-radius:4px;" loading="lazy" width="120" height="60">
+        <img src="assets/partners/Startup_Logo_Colour_PNG.png" alt="Startup India" loading="lazy" width="120" height="60">
+        <img src="assets/partners/msme-micro-small-medium-enterprises-logo-png_seeklogo-259373.png" alt="MSME" loading="lazy" width="120" height="60">
+        <img src="assets/partners/CSVTU FORTE LOGO.jpeg" alt="CSVTU FORTE" style="border-radius:4px;" loading="lazy" width="120" height="60">
+        <img src="assets/partners/OIC-Letterhead Logo.png" alt="OPJU Innovation Center" loading="lazy" width="120" height="60">
+        <img src="assets/partners/dpiit logo.jpeg" alt="DPIIT" style="border-radius:4px;" loading="lazy" width="120" height="60">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PROOF NUMBERS
+  ============================================================ -->
+  <section class="section section-darker proof-section" id="numbers">
+    <div class="container">
+      <div class="proof-grid">
+        <div class="proof-item reveal">
+          <div class="proof-number">
+            <span data-count="5" data-suffix="+">5+</span>
+          </div>
+          <div class="proof-label">National Awards &amp; Recognitions</div>
+          <div class="proof-desc">Won at IIT Guwahati, Shark Tank BITD, and multiple national innovation stages.</div>
+        </div>
+        <div class="proof-item reveal reveal-delay-1">
+          <div class="proof-number">
+            <span data-count="3">3</span>
+          </div>
+          <div class="proof-label">Government Recognitions</div>
+          <div class="proof-desc">Backed by DPIIT, Startup India, and MSME — validated at the highest national level.</div>
+        </div>
+        <div class="proof-item reveal reveal-delay-2">
+          <div class="proof-number">
+            <span data-count="100" data-suffix="%">100%</span>
+          </div>
+          <div class="proof-label">Hardware-Software Integration</div>
+          <div class="proof-desc">End-to-end proprietary system — sensor hardware to AI cloud platform, owned &amp; engineered in-house.</div>
+        </div>
+        <div class="proof-item reveal reveal-delay-3">
+          <div class="proof-number">
+            <span>Real-Time</span>
+          </div>
+          <div class="proof-label">Telemetry &amp; Alerts</div>
+          <div class="proof-desc">Live fuel data streamed continuously. Theft alerts within seconds of anomaly detection.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -283,7 +391,7 @@
 
   <!-- ============================================================
        PROBLEM SECTION
-       ============================================================ -->
+  ============================================================ -->
   <section class="section section-light" id="problem">
     <div class="container">
       <div class="problem-grid">
@@ -293,9 +401,10 @@
         </div>
 
         <div class="problem-content reveal-right">
+          <span class="label-md" style="display:block;margin-bottom:0.75rem;">The Root Problem</span>
           <h2 class="headline-lg">
             The Invisible Leak<br>
-            in Your <span class="text-orange">Operations.</span>
+            in Your <span class="text-blue">Operations.</span>
           </h2>
           <p class="body-lg">
             Fuel theft and operational leakage cost the logistics industry billions annually. Current monitoring systems are reactive, inaccurate, and easily bypassed.
@@ -332,14 +441,14 @@
 
   <!-- ============================================================
        SOLUTION SECTION
-       ============================================================ -->
+  ============================================================ -->
   <section class="section section-darker solution-section" id="solution">
     <div class="container">
       <div class="section-header text-center reveal">
         <span class="label-md">The Fuel Guard X Ecosystem</span>
-        <h2 class="headline-lg">Redefining Fuel <span class="text-orange">Control.</span></h2>
+        <h2 class="headline-lg">Redefining Fuel <span class="text-gradient">Control.</span></h2>
         <p class="body-lg">
-          Fuel Guard X isn't just a sensor - it's a complete hardware-software ecosystem engineered for the most demanding logistics environments on earth.
+          Fuel Guard X isn't just a sensor — it's a complete hardware-software ecosystem engineered for the most demanding logistics environments.
         </p>
       </div>
 
@@ -352,12 +461,12 @@
         <div class="solution-card reveal reveal-delay-2">
           <div class="solution-card-icon"><i data-lucide="lock"></i></div>
           <h3>Hardware Lockout</h3>
-          <p>Integrated solenoid lock system ensures your fuel tank cannot be compromised - automated tamper-proof physical security.</p>
+          <p>Integrated solenoid lock system ensures your fuel tank cannot be compromised — automated tamper-proof physical security.</p>
         </div>
         <div class="solution-card reveal reveal-delay-3">
           <div class="solution-card-icon"><i data-lucide="cloud"></i></div>
           <h3>Insight Cloud</h3>
-          <p>Central AI engine processing data to deliver predictive logistics, AI-powered anomaly detection and real-time analytics.</p>
+          <p>Central AI engine processing data to deliver predictive logistics, anomaly detection and real-time fleet analytics.</p>
         </div>
       </div>
     </div>
@@ -365,17 +474,17 @@
 
 
   <!-- ============================================================
-       FEATURES PREVIEW SECTION
-       ============================================================ -->
+       FEATURES PREVIEW
+  ============================================================ -->
   <section class="section section-light features-preview-section" id="features-preview">
     <div class="container">
       <div class="flex justify-between items-center" style="margin-bottom:2rem; flex-wrap:wrap; gap:1rem;">
         <div>
           <span class="label-md" style="display:block; margin-bottom:0.5rem;">Premium Features</span>
-          <h2 class="headline-lg">Engineered for <span class="text-orange">Reliability.</span></h2>
+          <h2 class="headline-lg">Engineered for <span class="text-blue">Reliability.</span></h2>
         </div>
-        <a href="features.html" class="btn btn-ghost" style="color:var(--accent-orange);">
-          See Full Features
+        <a href="features.html" class="btn btn-ghost" style="color:var(--accent-blue);">
+          See All Features
           <span class="btn-arrow">→</span>
         </a>
       </div>
@@ -384,12 +493,12 @@
         <div class="feature-card reveal reveal-delay-1">
           <div class="feature-card-icon"><i data-lucide="activity"></i></div>
           <h3>Real-Time Monitoring</h3>
-          <p>Live telemetry streaming. Fuel level changes are streamed to your dashboard with continuous tracking.</p>
+          <p>Live telemetry streaming. Fuel level changes are streamed to your dashboard with continuous precision tracking.</p>
         </div>
         <div class="feature-card reveal reveal-delay-2">
           <div class="feature-card-icon"><i data-lucide="shield-check"></i></div>
           <h3>Theft Detection</h3>
-          <p>AI-powered anomaly detection identifies unauthorized fuel siphoning, triggering instant alerts.</p>
+          <p>AI-powered anomaly detection identifies unauthorized fuel siphoning, triggering instant multi-channel alerts.</p>
         </div>
         <div class="feature-card reveal reveal-delay-3">
           <div class="feature-card-icon"><i data-lucide="smartphone"></i></div>
@@ -399,17 +508,17 @@
         <div class="feature-card reveal reveal-delay-1">
           <div class="feature-card-icon"><i data-lucide="layout-dashboard"></i></div>
           <h3>Unified Dashboard</h3>
-          <p>Enterprise-grade fleet analytics with intuitive topology maps and geographic tracking.</p>
+          <p>Enterprise-grade fleet analytics with intuitive topology maps and geographic vehicle tracking.</p>
         </div>
         <div class="feature-card reveal reveal-delay-2">
           <div class="feature-card-icon"><i data-lucide="brain"></i></div>
           <h3>AI Analytics</h3>
-          <p>Predictive intelligence that turns raw telemetry into actionable fleet efficiency insights.</p>
+          <p>Predictive intelligence that turns raw telemetry into actionable fleet efficiency and cost-saving insights.</p>
         </div>
         <div class="feature-card reveal reveal-delay-3">
           <div class="feature-card-icon"><i data-lucide="bell"></i></div>
           <h3>Smart Alerts</h3>
-          <p>Configurable multi-channel alerts via SMS, email, and push notifications for critical fuel events.</p>
+          <p>Configurable multi-channel alerts via SMS, email, and push notifications for all critical fuel events.</p>
         </div>
       </div>
     </div>
@@ -417,14 +526,14 @@
 
 
   <!-- ============================================================
-       ACHIEVEMENTS SECTION (Preview)
-       ============================================================ -->
+       ACHIEVEMENTS PREVIEW
+  ============================================================ -->
   <section class="section section-darker" id="achievements-preview">
     <div class="container">
       <div class="flex justify-between items-center" style="margin-bottom:2rem; flex-wrap:wrap; gap:1rem;">
         <div class="reveal">
           <span class="label-md" style="display:block; margin-bottom:0.5rem;">Recognition</span>
-          <h2 class="headline-lg">Architects of <span class="text-orange">Excellence</span></h2>
+          <h2 class="headline-lg">Architects of <span class="text-gradient">Excellence</span></h2>
         </div>
         <a href="achievements.html" class="btn btn-ghost reveal">
           View All Achievements
@@ -434,29 +543,29 @@
 
       <div class="achievements-preview-grid">
         <div class="achievement-card reveal reveal-delay-1">
-          <img src="assets/newspaper/WhatsApp Image 2026-06-05 at 1.29.03 PM.jpeg" 
+          <img src="assets/newspaper/WhatsApp Image 2026-06-05 at 1.29.03 PM.jpeg"
                alt="AAYUNEX Featured in Media Coverage" class="achievement-card-image" loading="lazy" width="400" height="300">
           <div class="achievement-card-content">
-            <span class="badge badge-orange badge-dot">Media Coverage</span>
+            <span class="badge badge-blue badge-dot">Media Coverage</span>
             <h3>Featured in Press</h3>
             <p>AAYUNEX Innovations featured in leading publications for groundbreaking fuel monitoring technology.</p>
           </div>
         </div>
         <div class="achievement-card reveal reveal-delay-2">
-          <img src="assets/wins/IDE BOOTCAMP IIT GUWAHATI 1ST PRIZE 2023 Organised by AICTE & MIC MoE.jpeg" 
+          <img src="assets/wins/IDE BOOTCAMP IIT GUWAHATI 1ST PRIZE 2023 Organised by AICTE & MIC MoE.jpeg"
                alt="1st Prize at IIT Guwahati IDE Bootcamp" class="achievement-card-image" loading="lazy" width="400" height="300">
           <div class="achievement-card-content">
-            <span class="badge badge-orange badge-dot">National Win</span>
-            <h3>IIT Guwahati - 1st Prize</h3>
-            <p>Secured first place at the IDE Bootcamp organized by AICTE & MIC, Ministry of Education, 2023.</p>
+            <span class="badge badge-blue badge-dot">National Win</span>
+            <h3>IIT Guwahati — 1st Prize</h3>
+            <p>Secured first place at the IDE Bootcamp organized by AICTE &amp; MIC, Ministry of Education, 2023.</p>
           </div>
         </div>
         <div class="achievement-card reveal reveal-delay-3">
-          <img src="assets/wins/SHARK TANK BITD 2.0 1st Runner Up 3100 Rs.Cash Prize 2025.jpeg" 
+          <img src="assets/wins/SHARK TANK BITD 2.0 1st Runner Up 3100 Rs.Cash Prize 2025.jpeg"
                alt="1st Runner Up at Shark Tank BITD 2.0" class="achievement-card-image" loading="lazy" width="400" height="300">
           <div class="achievement-card-content">
-            <span class="badge badge-orange badge-dot">Innovation</span>
-            <h3>Shark Tank BITD - 1st Runner Up</h3>
+            <span class="badge badge-blue badge-dot">Innovation</span>
+            <h3>Shark Tank BITD — 1st Runner Up</h3>
             <p>Awarded for the most innovative venture presentation among 200+ elite startups, 2025.</p>
           </div>
         </div>
@@ -467,7 +576,7 @@
 
   <!-- ============================================================
        FOOTER
-       ============================================================ -->
+  ============================================================ -->
   <footer class="footer" id="footer">
     <div class="container">
       <div class="footer-grid">
@@ -478,16 +587,18 @@
           </div>
           <p>Precision fuel verification and advanced protection systems for the modern industrial enterprise. Eliminating inefficiencies through deep-tech innovation.</p>
           <div class="footer-social">
-            <a href="https://www.linkedin.com/company/aayunex-innovation-opc-pvt-ltd/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+            <a href="https://www.linkedin.com/company/aayunex-innovation-opc-pvt-ltd/" target="_blank" rel="noopener" aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
-            <a href="https://www.facebook.com/share/18HXghrufj/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+            <a href="https://www.facebook.com/share/18HXghrufj/" target="_blank" rel="noopener" aria-label="Facebook">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
             </a>
-            <a href="https://www.instagram.com/aayunex_innovations?igsh=OHUwNGZhY3VjMmQ0" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+            <a href="https://www.instagram.com/aayunex_innovations?igsh=OHUwNGZhY3VjMmQ0" target="_blank" rel="noopener" aria-label="Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
-            <a href="mailto:contact@aayunex.com" target="_blank" rel="noopener" aria-label="Email" title="Email"><i data-lucide="mail"></i></a>
+            <a href="mailto:contact@aayunexinnovations.com" target="_blank" rel="noopener" aria-label="Email">
+              <i data-lucide="mail"></i>
+            </a>
           </div>
         </div>
 
@@ -519,7 +630,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2025 AAYUNEX Innovations OPC Pvt Ltd. All rights reserved.</p>
+        <p>&copy; 2026 AAYUNEX Innovations OPC Pvt Ltd. All rights reserved.</p>
         <div class="footer-bottom-links">
           <a href="privacy.html">Privacy Policy</a>
           <a href="privacy.html#terms">Terms of Service</a>
@@ -528,13 +639,7 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/main.js"></script>
   <script src="js/home.js"></script>
-
-  <!-- Initialize Lucide Icons -->
-  <script>
-    lucide.createIcons();
-  </script>
 </body>
 </html>

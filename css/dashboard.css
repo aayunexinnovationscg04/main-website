@@ -204,7 +204,7 @@
   flex-shrink: 0;
 }
 
-.dfm-vehicle-dot.active { background-color: #22c55e; }
+.dfm-vehicle-dot.active { background-color: var(--color-success); }
 .dfm-vehicle-dot.warning { background-color: var(--accent-orange); }
 .dfm-vehicle-dot.offline { background-color: var(--text-secondary); }
 
