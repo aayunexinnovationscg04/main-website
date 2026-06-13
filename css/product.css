@@ -469,3 +469,8 @@
   .product-cta-buttons { flex-direction: column; max-width: 400px; margin-left: auto; margin-right: auto; }
   .product-cta-buttons .btn { width: 100%; }
 }
+
+@media (hover: none) {
+  .ecosystem-card:hover { transform: none; box-shadow: none; }
+  .tech-card:hover { transform: none; border-color: var(--border-subtle); }
+}

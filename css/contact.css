@@ -345,3 +345,7 @@
   .demo-panel { padding: 1.5rem; }
   .contact-info-card { padding: 1.5rem; }
 }
+
+@media (hover: none) {
+  .contact-info-card:hover { transform: none; box-shadow: none; border-color: var(--border-subtle); }
+}

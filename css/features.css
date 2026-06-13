@@ -197,3 +197,8 @@
   .why-item { flex-direction: column; }
   .why-item-number { margin-bottom: 0.5rem; }
 }
+
+@media (hover: none) {
+  .feature-detail-card:hover { transform: none; background-color: var(--bg-card); border-color: var(--border-subtle); box-shadow: none; }
+  .section-light .feature-detail-card:hover { box-shadow: none; border-color: var(--border-subtle); }
+}

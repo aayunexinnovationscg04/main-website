@@ -232,3 +232,9 @@
   .achievements-cta-buttons .btn { width: 100%; }
   .ach-card-body { padding: 1.25rem; }
 }
+
+@media (hover: none) {
+  .ach-card:hover { transform: none; border-color: var(--border-subtle); box-shadow: none; }
+  .media-card:hover { transform: none; box-shadow: none; }
+  .partners-logo-grid img:hover { transform: none; filter: none; }
+}

@@ -1459,6 +1459,10 @@ button { cursor: pointer; }
   .section-header { margin-bottom: 2rem; }
   .section-header .body-lg { font-size: 1rem; }
   .container { padding: 0 1.25rem; }
+
+  /* Logo strip on mobile - smaller gap and shorter images */
+  .logo-strip { gap: 1.5rem; }
+  .logo-strip img { height: 28px; }
 }
 
 @media (max-width: 480px) {
@@ -1490,6 +1494,70 @@ button { cursor: pointer; }
   .footer-bottom p, .footer-bottom-links a { font-size: 0.75rem; }
   .footer-bottom-links { gap: 1rem; }
   .footer-social a { width: 34px; height: 34px; }
+
+  /* Logo strip */
+  .logo-strip { gap: 1rem; }
+  .logo-strip img { height: 24px; }
+}
+
+
+/* ================================================================
+   HOVER: NONE - Disable sticky hover effects on touch devices
+   Touch screens fire :hover on tap and keep it active until
+   the next tap elsewhere, making lifted/highlighted cards look
+   broken. This block resets all cosmetic hover transforms so
+   only pointer devices (mice, trackpads) see them.
+================================================================ */
+@media (hover: none) {
+  /* Buttons - preserve color, kill transforms */
+  .btn:hover { transform: none; }
+
+  /* Shared feature cards */
+  .feature-card:hover {
+    transform: none;
+    border-color: var(--border-subtle);
+    box-shadow: var(--shadow-card);
+  }
+  .feature-card:hover::before { opacity: 0; }
+  .feature-card:hover .feature-card-icon {
+    transform: none;
+    background: var(--orange-glow);
+    color: var(--orange-soft);
+    border-color: var(--border-orange);
+    box-shadow: none;
+  }
+  .section-light .feature-card:hover,
+  .section-light-alt .feature-card:hover {
+    box-shadow: var(--shadow-sm);
+    border-color: var(--border-subtle);
+  }
+
+  /* Achievement + team cards */
+  .achievement-card:hover {
+    transform: none;
+    border-color: var(--border-subtle);
+    box-shadow: none;
+  }
+  .team-card:hover {
+    transform: none;
+    border-color: var(--border-subtle);
+    box-shadow: var(--shadow-card);
+  }
+  .team-card:hover .team-card-avatar { border-color: var(--border-subtle); }
+
+  /* Logo strip images */
+  .logo-strip img:hover { transform: none; filter: none; }
+
+  /* Proof items */
+  .proof-item:hover { background: transparent; }
+  .proof-item:hover::after { transform: scaleX(0); }
+
+  /* Nav links - keep text color but no underline slide or bg */
+  .navbar-links a:hover { color: var(--text-secondary); background: transparent; }
+  .navbar-links a:hover::after { transform: scaleX(0); }
+
+  /* Footer links - no padding nudge */
+  .footer-column a:hover { padding-left: 0; color: var(--text-muted); }
 }
 
 
