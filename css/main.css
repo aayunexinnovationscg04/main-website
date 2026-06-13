@@ -1529,3 +1529,67 @@ body,
 .feature-card, .solution-card, .achievement-card, .team-card {
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
+
+
+/* ================================================================
+   SKELETON LOADING
+   - html.page-loading added by JS before DOMContentLoaded
+   - html.page-loading removed on window.load (all resources ready)
+   - .skeleton-cover divs injected into key containers, fade out and
+     are removed from DOM after their CSS transition completes
+================================================================ */
+
+@keyframes skeletonShimmer {
+  from { background-position: -400px 0; }
+  to   { background-position:  400px 0; }
+}
+
+/* All <img> tags show a shimmer background while their source loads.
+   Once the image renders it covers the background naturally. */
+html.page-loading img {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card)     0px,
+    var(--bg-elevated) 80px,
+    var(--bg-card)     160px
+  );
+  background-size: 400px 100%;
+  animation: skeletonShimmer 1.5s ease-in-out infinite;
+}
+
+/* Elements that need position:relative to contain the cover overlay.
+   Cards (feature-card, ach-card, etc.) already have it via their own CSS. */
+html.page-loading .hero-content,
+html.page-loading .hero-visual,
+html.page-loading .proof-item,
+html.page-loading .problem-item,
+html.page-loading .problem-stat-highlight,
+html.page-loading .logo-strip {
+  position: relative;
+  overflow: hidden;
+}
+
+/* The cover div itself */
+.skeleton-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  border-radius: inherit;
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    var(--bg-card)     0px,
+    var(--bg-elevated) 80px,
+    var(--bg-card)     160px
+  );
+  background-size: 400px 100%;
+  animation: skeletonShimmer 1.5s ease-in-out infinite;
+  transition: opacity 0.4s ease;
+}
+
+/* Fade-out state: added by JS on window.load */
+.skeleton-cover.sk-out {
+  opacity: 0;
+  pointer-events: none;
+}

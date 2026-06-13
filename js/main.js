@@ -4,7 +4,11 @@
    Designed & developed by Harish Kumar Dwivedi
    ============================================================ */
 
+// Flag page as loading before DOMContentLoaded so CSS skeleton kicks in
+document.documentElement.classList.add('page-loading');
+
 document.addEventListener('DOMContentLoaded', () => {
+  initSkeleton();
   initThemeSwitcher();
   initNavbar();
   initScrollReveal();
@@ -16,6 +20,45 @@ document.addEventListener('DOMContentLoaded', () => {
   // Init Lucide icons (defer-loaded CDN is ready by DOMContentLoaded)
   if (typeof lucide !== 'undefined') lucide.createIcons();
 });
+
+
+/* ============================================================
+   0. SKELETON LOADING - shimmer covers removed on window.load
+   ============================================================ */
+function initSkeleton() {
+  const targets = document.querySelectorAll(
+    '.hero-content, .hero-visual, ' +
+    '.proof-item, .problem-item, .problem-stat-highlight, ' +
+    '.feature-card, .feature-detail-card, ' +
+    '.ach-card, .media-card, ' +
+    '.ecosystem-card, ' +
+    '.contact-form-panel, .contact-info-card, ' +
+    '.dt-pillar, .dt-pipeline, ' +
+    '.logo-strip'
+  );
+
+  targets.forEach(el => {
+    const cover = document.createElement('div');
+    cover.className = 'skeleton-cover';
+    cover.setAttribute('aria-hidden', 'true');
+    el.appendChild(cover);
+  });
+
+  function revealAll() {
+    document.querySelectorAll('.skeleton-cover').forEach(cover => {
+      cover.classList.add('sk-out');
+      cover.addEventListener('transitionend', () => cover.remove(), { once: true });
+    });
+    document.documentElement.classList.remove('page-loading');
+    document.documentElement.classList.add('page-loaded');
+  }
+
+  if (document.readyState === 'complete') {
+    revealAll();
+  } else {
+    window.addEventListener('load', revealAll, { once: true });
+  }
+}
 
 
 /* ============================================================
