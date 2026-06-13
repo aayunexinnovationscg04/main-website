@@ -163,36 +163,56 @@
     <!-- Background decorators -->
     <div class="hero-grid-overlay"></div>
     <div class="hero-glow-line"></div>
+    <div class="hero-beam-left"></div>
+    <div class="hero-beam-right"></div>
 
     <div class="container">
       <div class="hero-inner">
 
         <!-- Left: Content -->
         <div class="hero-content">
+
+          <!-- Live status bar -->
+          <div class="hero-live-bar">
+            <span class="hero-live-dot"></span>
+            <span>Live monitoring - <strong>fleet vehicles active right now</strong></span>
+          </div>
+
           <div class="hero-badge-row">
             <span class="hero-pill">
               <span class="pill-dot"></span>
-              AI-Powered Platform
+              AI + IoT Platform
             </span>
-            <span class="hero-award-chip">🏆 5+ National Awards</span>
+            <span class="hero-award-chip">&#127942; IIT Guwahati Winner</span>
+            <span class="hero-govt-chip">
+              <i data-lucide="shield-check"></i>
+              DPIIT Recognized
+            </span>
           </div>
 
           <h1 class="hero-headline">
-            Stop Fuel Theft.<br>
-            <span class="text-gradient">Gain Full Control.</span>
+            Stop Fuel Theft<br>
+            <span class="text-gradient">Before It Happens.</span>
           </h1>
 
           <p class="hero-subtitle">
-            Precision ultrasonic sensors, AI anomaly detection, and real-time fleet intelligence - purpose-built for commercial vehicles where every litre counts.
+            Precision ultrasonic sensors + AI anomaly detection + real-time fleet intelligence - purpose-built for commercial vehicles where every litre counts.
           </p>
+
+          <!-- Quick-scan feature pills -->
+          <div class="hero-feature-pills">
+            <span class="hero-feat-pill"><i data-lucide="zap"></i> Instant Theft Alerts</span>
+            <span class="hero-feat-pill"><i data-lucide="brain-circuit"></i> AI Anomaly Detection</span>
+            <span class="hero-feat-pill"><i data-lucide="map-pin"></i> GPS Fleet Tracking</span>
+          </div>
 
           <div class="hero-cta">
             <a href="contact.html#demo" class="btn btn-primary btn-lg">
               <i data-lucide="play-circle"></i>
-              Request Demo
+              Request Free Demo
             </a>
             <a href="product.html" class="btn btn-outline btn-lg">
-              View Product
+              How It Works
               <i data-lucide="arrow-right"></i>
             </a>
           </div>
@@ -209,8 +229,13 @@
             </div>
             <div class="hero-stat-divider"></div>
             <div class="hero-stat">
-              <span class="hero-stat-value">AI</span>
-              <span class="hero-stat-label">Deep Tech Core</span>
+              <span class="hero-stat-value">&#177;0.5%</span>
+              <span class="hero-stat-label">Sensor Accuracy</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-value hero-stat-live"><span class="stat-live-dot"></span>Live</span>
+              <span class="hero-stat-label">Real-Time Data</span>
             </div>
           </div>
         </div>
@@ -231,10 +256,16 @@
                     <span class="mockup-app-co">by AAYUNEX Innovations</span>
                   </div>
                 </div>
-                <span class="mockup-live-badge">
-                  <span class="live-pulse"></span>
-                  Live
-                </span>
+                <div class="mockup-topbar-right">
+                  <span class="mockup-vehicle-count">
+                    <i data-lucide="truck"></i>
+                    12 vehicles
+                  </span>
+                  <span class="mockup-live-badge">
+                    <span class="live-pulse"></span>
+                    Live
+                  </span>
+                </div>
               </div>
 
               <!-- Body -->
@@ -283,7 +314,7 @@
                       </div>
                     </div>
                     <div class="mockup-kpi">
-                      <div class="kpi-icon indigo"><i data-lucide="shield-check"></i></div>
+                      <div class="kpi-icon orange"><i data-lucide="shield-check"></i></div>
                       <div>
                         <div class="kpi-val">0</div>
                         <div class="kpi-label">Alerts</div>
@@ -312,6 +343,27 @@
                       <div class="mcb alt" style="--h:92%"></div>
                     </div>
                   </div>
+
+                  <!-- Live event ticker -->
+                  <div class="mockup-alert-ticker">
+                    <span class="ticker-dot"></span>
+                    <div class="ticker-track">
+                      <div class="ticker-scroll">
+                        <span class="ticker-item">GJ-01 &middot; 78.4L &middot; Normal</span>
+                        <span class="ticker-sep">/</span>
+                        <span class="ticker-item alert">MH-03 &middot; Anomaly -12L</span>
+                        <span class="ticker-sep">/</span>
+                        <span class="ticker-item">RJ-07 &middot; Refuel +45L</span>
+                        <span class="ticker-sep">/</span>
+                        <span class="ticker-item">GJ-01 &middot; 78.4L &middot; Normal</span>
+                        <span class="ticker-sep">/</span>
+                        <span class="ticker-item alert">MH-03 &middot; Anomaly -12L</span>
+                        <span class="ticker-sep">/</span>
+                        <span class="ticker-item">RJ-07 &middot; Refuel +45L</span>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -324,6 +376,10 @@
             <div class="hero-float-badge float-badge-2">
               <i data-lucide="shield-check" class="float-badge-icon"></i>
               Theft Blocked
+            </div>
+            <div class="hero-float-badge float-badge-3">
+              <i data-lucide="cpu" class="float-badge-icon"></i>
+              AI: 98.7% accurate
             </div>
           </div>
         </div>
