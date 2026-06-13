@@ -1,6 +1,6 @@
 /* ================================================================
-   AAYUNEX INNOVATIONS — Design System
-   main.css — Orange flame + Navy blue brand, Plus Jakarta Sans headings
+   AAYUNEX INNOVATIONS - Design System
+   main.css - Orange flame + Navy blue brand, Plus Jakarta Sans headings
 ================================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -26,7 +26,7 @@
   --text-dark:           #F0F6FF;
   --text-dark-secondary: #96B8D8;
 
-  /* PRIMARY: Orange — the Flame */
+  /* PRIMARY: Orange - the Flame */
   --orange:             #F57320;
   --orange-hover:       #E06210;
   --orange-deep:        #C45008;
@@ -35,7 +35,7 @@
   --orange-glow:        rgba(245, 115, 32, 0.13);
   --orange-glow-strong: rgba(245, 115, 32, 0.28);
 
-  /* SECONDARY: Blue — the Ring/Authority */
+  /* SECONDARY: Blue - the Ring/Authority */
   --blue:             #2B5EE8;
   --blue-hover:       #1A4DD0;
   --blue-deep:        #1240B0;
@@ -1414,7 +1414,7 @@ button { cursor: pointer; }
 
   .grid-3, .grid-2 { grid-template-columns: 1fr; }
 
-  /* Footer — brand full-width, 3 link cols in a row below */
+  /* Footer - brand full-width, 3 link cols in a row below */
   .footer { padding: 3rem 0 0; }
   .footer-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -1478,7 +1478,7 @@ button { cursor: pointer; }
   .container { padding: 0 1rem; }
   .body-lg { font-size: 1rem; }
 
-  /* Footer at 480px — brand stacks single column, links still 3 cols */
+  /* Footer at 480px - brand stacks single column, links still 3 cols */
   .footer-brand {
     grid-template-columns: 1fr;
     grid-template-areas: "logo" "desc" "social";

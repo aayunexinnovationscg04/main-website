@@ -1,6 +1,6 @@
 /* ============================================================
-   FUEL GUARD X — Shared JavaScript
-   main.js — Navbar, scroll, animations, theme, utilities
+   FUEL GUARD X - Shared JavaScript
+   main.js - Navbar, scroll, animations, theme, utilities
    Designed & developed by Harish Kumar Dwivedi
    ============================================================ */
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* ============================================================
-   1. THEME SWITCHER — dark / light only (no orange)
+   1. THEME SWITCHER - dark / light only (no orange)
    ============================================================ */
 function initThemeSwitcher() {
   let saved = localStorage.getItem('theme') || 'dark';
@@ -56,7 +56,7 @@ function updateActiveThemeButton(activeTheme) {
 
 
 /* ============================================================
-   2. NAVBAR — scroll compact + mobile drawer
+   2. NAVBAR - scroll compact + mobile drawer
    ============================================================ */
 function initNavbar() {
   const navbar   = document.querySelector('.navbar');
@@ -134,7 +134,7 @@ function initScrollProgress() {
 
 
 /* ============================================================
-   4. SCROLL REVEAL — Intersection Observer
+   4. SCROLL REVEAL - Intersection Observer
    ============================================================ */
 function initScrollReveal() {
   const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
@@ -154,7 +154,7 @@ function initScrollReveal() {
 
 
 /* ============================================================
-   5. SMOOTH SCROLL — Anchor links
+   5. SMOOTH SCROLL - Anchor links
    ============================================================ */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

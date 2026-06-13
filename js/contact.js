@@ -1,6 +1,6 @@
 /* ============================================================
-   FUEL GUARD X — Contact Page JavaScript
-   contact.js — Formspree AJAX submission & validation
+   FUEL GUARD X - Contact Page JavaScript
+   contact.js - Formspree AJAX submission & validation
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {

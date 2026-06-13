@@ -1,5 +1,5 @@
 /* ============================================================
-   FUEL GUARD X — Home Page JavaScript
+   FUEL GUARD X - Home Page JavaScript
    home.js
 ============================================================ */
 
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* ============================================================
-   HERO PARTICLES — orange + blue brand colors
+   HERO PARTICLES - orange + blue brand colors
 ============================================================ */
 function initHeroParticles() {
   const hero = document.querySelector('.hero');
@@ -39,7 +39,7 @@ function initHeroParticles() {
     const del  = (Math.random() * 8).toFixed(1);
     const op   = (Math.random() * 0.3 + 0.06).toFixed(2);
 
-    /* Randomly orange or blue — brand colors */
+    /* Randomly orange or blue - brand colors */
     const r   = Math.random();
     const hue = r < 0.55
       ? '245, 115, 32'   /* orange flame */
@@ -79,7 +79,7 @@ function initHeroParticles() {
 
 
 /* ============================================================
-   HERO CHART BARS — animate from 0 on viewport entry
+   HERO CHART BARS - animate from 0 on viewport entry
 ============================================================ */
 function initHeroChartBars() {
   const chart = document.querySelector('#hero-chart-bars');
@@ -113,7 +113,7 @@ function initHeroChartBars() {
 
 
 /* ============================================================
-   HERO CHART — subtle shimmer loop every 3.5s
+   HERO CHART - subtle shimmer loop every 3.5s
 ============================================================ */
 function initHeroBarLoop() {
   const chart = document.querySelector('#hero-chart-bars');

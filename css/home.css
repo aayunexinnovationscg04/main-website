@@ -1,6 +1,6 @@
 /* ================================================================
-   FUEL GUARD X — Home Page
-   home.css — Orange flame hero, sharp cards, brand animations
+   FUEL GUARD X - Home Page
+   home.css - Orange flame hero, sharp cards, brand animations
 ================================================================ */
 
 /* ================================================================
@@ -20,7 +20,7 @@
   background: linear-gradient(170deg, #F8FAFB 0%, #EEF3FF 60%, #F8FAFB 100%);
 }
 
-/* Orange fire orb — bottom left */
+/* Orange fire orb - bottom left */
 .hero::before {
   content: '';
   position: absolute;
@@ -32,7 +32,7 @@
   pointer-events: none;
 }
 
-/* Blue tech orb — top right */
+/* Blue tech orb - top right */
 .hero::after {
   content: '';
   position: absolute;
@@ -75,7 +75,7 @@
     linear-gradient(90deg, rgba(26, 77, 208, 0.025) 1px, transparent 1px);
 }
 
-/* Top glow line — orange to blue */
+/* Top glow line - orange to blue */
 .hero-glow-line {
   position: absolute;
   top: 0; left: 0; right: 0;
