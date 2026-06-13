@@ -5,25 +5,26 @@
 # SECURITY HEADERS
 # ============================================
 
-# Prevent clickjacking attacks
 <IfModule mod_headers.c>
-    Header set X-Frame-Options "SAMEORIGIN"
-    Header set X-Content-Type-Options "nosniff"
-    Header set X-XSS-Protection "1; mode=block"
-    Header set Referrer-Policy "strict-origin-when-cross-origin"
-    
-    # Content Security Policy - Simplified for launch
-    Header set Content-Security-Policy "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval';"
-
-    # Additional security headers
-    Header set Referrer-Policy "strict-origin-when-cross-origin"
-    Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), sync-xhr=()"
-    Header set X-Permitted-Cross-Domain-Policies "none"
-    Header set Cross-Origin-Resource-Policy "same-origin"
+    # Clickjacking protection
+    Header always set X-Frame-Options "SAMEORIGIN"
+    # MIME-type sniffing protection
+    Header always set X-Content-Type-Options "nosniff"
+    # Legacy XSS filter (belt-and-suspenders)
+    Header always set X-XSS-Protection "1; mode=block"
+    # Referrer control
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    # HSTS — force HTTPS for 1 year, include subdomains, preload
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-    Header set X-Frame-Options "SAMEORIGIN"
-    Header set X-Content-Type-Options "nosniff"
-    Header set X-XSS-Protection "1; mode=block"
+    # Cross-domain policy
+    Header always set X-Permitted-Cross-Domain-Policies "none"
+    # Cross-origin resource policy
+    Header always set Cross-Origin-Resource-Policy "same-origin"
+    # Feature/Permissions policy
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
+    # Content Security Policy — scoped to known sources, no unsafe-eval
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io;"
+    # Remove server fingerprinting headers
     Header unset Server
     Header unset X-Powered-By
 </IfModule>
