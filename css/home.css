@@ -915,6 +915,370 @@
 
 
 /* ================================================================
+   DEEP TECH CORE
+================================================================ */
+.deep-tech-section { position: relative; overflow: hidden; }
+
+/* Subtle circuit-grid background */
+.deep-tech-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(245,115,32,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,115,32,0.035) 1px, transparent 1px);
+  background-size: 52px 52px;
+  pointer-events: none;
+}
+
+/* ---- TWO PILLARS ---- */
+.dt-pillars {
+  display: grid;
+  grid-template-columns: 1fr 48px 1fr;
+  gap: 0;
+  align-items: stretch;
+  margin-bottom: 3.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Individual pillar card */
+.dt-pillar {
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.dt-pillar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.dt-pillar:hover { border-color: var(--border-orange); box-shadow: var(--shadow-orange-lg); }
+.dt-pillar:hover::before { opacity: 1; }
+
+.dt-pillar-ai {
+  background: linear-gradient(145deg, rgba(245,115,32,0.06) 0%, var(--bg-card) 55%);
+  border-color: var(--border-orange);
+}
+.dt-pillar-ai::before {
+  background: radial-gradient(ellipse at 0% 0%, rgba(245,115,32,0.10) 0%, transparent 65%);
+}
+
+.dt-pillar-iot {
+  background: linear-gradient(145deg, rgba(43,94,232,0.06) 0%, var(--bg-card) 55%);
+  border-color: var(--border-blue);
+}
+.dt-pillar-iot::before {
+  background: radial-gradient(ellipse at 100% 0%, rgba(43,94,232,0.10) 0%, transparent 65%);
+}
+.dt-pillar-iot:hover { border-color: var(--border-blue); box-shadow: var(--shadow-blue-lg); }
+
+/* Layer tag */
+.dt-pillar-tag {
+  display: inline-block;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--orange-soft);
+  background: rgba(245,115,32,0.10);
+  border: 1px solid rgba(245,115,32,0.22);
+  border-radius: var(--radius-full);
+  padding: 0.2rem 0.6rem;
+  margin-bottom: 1.5rem;
+}
+.dt-pillar-tag-blue {
+  color: var(--blue-soft);
+  background: rgba(43,94,232,0.10);
+  border-color: rgba(43,94,232,0.22);
+}
+
+/* Pillar header row */
+.dt-pillar-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Icon circle */
+.dt-icon {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.dt-icon i, .dt-icon svg { width: 22px; height: 22px; stroke-width: 1.75px; }
+
+.dt-icon-ai {
+  background: linear-gradient(135deg, rgba(245,115,32,0.18) 0%, rgba(245,115,32,0.08) 100%);
+  color: var(--orange-light);
+  border: 1px solid rgba(245,115,32,0.22);
+}
+.dt-icon-iot {
+  background: linear-gradient(135deg, rgba(43,94,232,0.18) 0%, rgba(43,94,232,0.08) 100%);
+  color: var(--blue-light);
+  border: 1px solid rgba(43,94,232,0.22);
+}
+
+.dt-pillar-title {
+  font-family: var(--font-heading);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.2rem;
+  line-height: 1.2;
+}
+.dt-pillar-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Status badge */
+.dt-badge {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.22rem 0.6rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.dt-badge-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  animation: pulseDot 2s ease-in-out infinite;
+}
+.dt-badge-active {
+  background: rgba(245,115,32,0.12);
+  border: 1px solid rgba(245,115,32,0.25);
+  color: var(--orange-soft);
+}
+.dt-badge-active .dt-badge-dot { background: var(--orange); }
+.dt-badge-live {
+  background: rgba(34,197,94,0.10);
+  border: 1px solid rgba(34,197,94,0.22);
+  color: var(--color-success);
+}
+.dt-badge-live .dt-badge-dot { background: var(--color-success); }
+
+/* Description */
+.dt-pillar-desc {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* Capabilities list */
+.dt-caps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-bottom: 1.75rem;
+}
+.dt-caps li {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.dt-caps li i, .dt-caps li svg {
+  width: 15px; height: 15px;
+  stroke-width: 2px;
+  flex-shrink: 0;
+}
+.dt-pillar-ai .dt-caps li i,
+.dt-pillar-ai .dt-caps li svg { color: var(--orange-soft); }
+.dt-pillar-iot .dt-caps li i,
+.dt-pillar-iot .dt-caps li svg { color: var(--blue-soft); }
+
+/* Tech stack chips */
+.dt-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.dt-stack span {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+}
+
+/* Centre × connector */
+.dt-x-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0 4px;
+  position: relative;
+  z-index: 2;
+}
+.dt-x-line {
+  flex: 1;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(245,115,32,0.35) 40%, rgba(43,94,232,0.35) 60%, transparent);
+}
+.dt-x-node {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  letter-spacing: 0;
+}
+
+/* ---- DATA PIPELINE ---- */
+.dt-pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.dt-pipeline::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--orange) 30%, var(--blue) 70%, transparent);
+}
+
+.dt-pipe-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.dt-pipe-icon {
+  width: 40px; height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary);
+  transition: all var(--transition-base);
+}
+.dt-pipe-icon i, .dt-pipe-icon svg { width: 18px; height: 18px; stroke-width: 1.75px; }
+
+.dt-pipe-step:hover .dt-pipe-icon {
+  background: var(--orange-glow);
+  border-color: var(--border-orange);
+  color: var(--orange-light);
+}
+
+.dt-pipe-step span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.dt-pipe-final .dt-pipe-icon {
+  background: linear-gradient(135deg, rgba(245,115,32,0.15) 0%, rgba(43,94,232,0.12) 100%);
+  border-color: var(--border-orange);
+  color: var(--orange-soft);
+}
+.dt-pipe-final span { color: var(--orange-soft); }
+
+.dt-pipe-arrow {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  padding: 0 0.25rem;
+  margin-bottom: 1.5rem;
+}
+.dt-pipe-arrow i, .dt-pipe-arrow svg { width: 16px; height: 16px; stroke-width: 2px; }
+
+/* Light theme overrides */
+[data-theme="light"] .dt-pillar-ai { background: linear-gradient(145deg, rgba(232,96,16,0.05) 0%, #fff 55%); }
+[data-theme="light"] .dt-pillar-iot { background: linear-gradient(145deg, rgba(26,77,208,0.05) 0%, #fff 55%); }
+[data-theme="light"] .dt-stack span { background: var(--bg-elevated); color: var(--text-secondary); }
+[data-theme="light"] .dt-pipe-step span { color: var(--text-secondary); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dt-pillars { grid-template-columns: 1fr 40px 1fr; }
+}
+
+@media (max-width: 768px) {
+  .dt-pillars {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .dt-x-connector {
+    flex-direction: row;
+    height: 40px;
+    padding: 4px 0;
+  }
+  .dt-x-line {
+    flex: 1;
+    width: auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(245,115,32,0.35) 40%, rgba(43,94,232,0.35) 60%, transparent);
+  }
+  .dt-pillar { padding: 2rem 1.5rem; }
+
+  .dt-pipeline {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1.25rem;
+    justify-content: flex-start;
+  }
+  .dt-pipe-arrow { display: none; }
+  .dt-pipe-step { flex: 0 0 calc(33.33% - 0.5rem); }
+}
+
+@media (max-width: 480px) {
+  .dt-pillar { padding: 1.5rem 1.25rem; }
+  .dt-pipe-step { flex: 0 0 calc(50% - 0.5rem); }
+  .dt-pipeline { gap: 0.75rem; }
+}
+
+
+/* ================================================================
    FEATURES PREVIEW (Home)
 ================================================================ */
 .features-preview-section { position: relative; }
