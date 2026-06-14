@@ -65,9 +65,8 @@ function initSkeleton() {
    1. THEME SWITCHER - dark / light only (no orange)
    ============================================================ */
 function initThemeSwitcher() {
-  let saved = localStorage.getItem('theme') || 'dark';
-  // Migrate any legacy orange theme to dark
-  if (saved === 'orange') saved = 'dark';
+  let saved = localStorage.getItem('theme') || 'light';
+  if (saved === 'orange') saved = 'light';
 
   applyTheme(saved);
 
@@ -82,7 +81,7 @@ function initThemeSwitcher() {
 }
 
 function applyTheme(theme) {
-  if (theme === 'orange') theme = 'dark';
+  if (theme === 'orange') theme = 'light';
   document.documentElement.setAttribute('data-theme', theme);
   updateActiveThemeButton(theme);
 }
