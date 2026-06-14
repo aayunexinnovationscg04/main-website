@@ -84,10 +84,10 @@
   --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
 
-  --container-max:    1280px;
+  --container-max:    clamp(1280px, 88vw, 2400px);
   --container-narrow: 960px;
-  --gutter:           1.5rem;
-  --section-padding:  6rem;
+  --gutter:           clamp(1.5rem, 2.5vw, 4rem);
+  --section-padding:  clamp(3rem, 7.5vw, 10rem);
 
   --radius-sm:   3px;
   --radius-md:   6px;
@@ -610,21 +610,21 @@ button { cursor: pointer; }
   justify-content: space-between;
   max-width: var(--container-max);
   margin: 0 auto;
-  height: 64px;
-  gap: 1.5rem;
+  height: clamp(64px, 5vw, 80px);
+  gap: clamp(1rem, 2vw, 2.5rem);
   transition: height 0.4s ease;
 }
 
-.navbar.scrolled .navbar-inner { height: 54px; }
+.navbar.scrolled .navbar-inner { height: clamp(50px, 4.2vw, 66px); }
 
 /* Logo */
 .navbar-logo {
   display: flex;
   align-items: center;
-  gap: 0.625rem;
+  gap: clamp(0.5rem, 0.6vw, 0.875rem);
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.0625rem;
+  font-size: clamp(1.0625rem, 0.9vw + 0.3rem, 1.375rem);
   color: var(--text-heading);
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -635,12 +635,12 @@ button { cursor: pointer; }
 .navbar-logo:hover { opacity: 0.9; }
 
 .navbar-logo img {
-  height: 70px;
+  height: clamp(46px, 5.5vw, 84px);
   width: auto;
   transition: height 0.4s ease;
 }
 
-.navbar.scrolled .navbar-logo img { height: 56px; }
+.navbar.scrolled .navbar-logo img { height: clamp(38px, 4.4vw, 68px); }
 
 [data-theme="dark"] .navbar-logo img {
   background: radial-gradient(circle, rgba(255,255,255,0.92) 72%, transparent 78%);
@@ -659,10 +659,10 @@ button { cursor: pointer; }
 
 
 .navbar-links a {
-  font-size: 0.875rem;
+  font-size: clamp(0.875rem, 0.7vw + 0.2rem, 1.0625rem);
   font-weight: 500;
   color: var(--text-secondary);
-  padding: 0.5rem 0.875rem;
+  padding: 0.5rem clamp(0.875rem, 0.65vw, 1.5rem);
   border-radius: var(--radius-md);
   transition: all 0.22s ease;
   position: relative;
@@ -1595,38 +1595,10 @@ button { cursor: pointer; }
   }
 }
 
-/* Compact navbar for smaller desktops (769px–1180px) to prevent link overflow */
+/* Compact navbar for smaller desktops (769px–1180px) — clamp already scales,
+   this just tightens the gap a touch at medium widths */
 @media (min-width: 769px) and (max-width: 1180px) {
-  .navbar-links a { padding: 0.5rem 0.55rem; font-size: 0.8125rem; }
   .navbar-inner { gap: 0.75rem; }
-}
-
-/* Large screens (1440px+) — use ~96% of viewport */
-@media (min-width: 1440px) {
-  :root { --container-max: 1400px; --gutter: 2rem; }
-  .navbar-inner { height: 68px; }
-}
-
-/* XL screens (1920px+) — ~92% of viewport */
-@media (min-width: 1920px) {
-  :root { --container-max: 1760px; --gutter: 3rem; }
-  .navbar-links a { font-size: 0.9375rem; padding: 0.5rem 1.125rem; }
-  .navbar-inner { height: 72px; }
-  .navbar-logo img { height: 76px; }
-  .navbar-logo { font-size: 1.125rem; }
-}
-
-/* 2K / QHD screens (2560px+) — ~90% of viewport */
-@media (min-width: 2560px) {
-  :root { --container-max: 2320px; --gutter: 4rem; }
-  .navbar-links a { font-size: 1rem; padding: 0.5rem 1.5rem; }
-  .navbar-inner { height: 80px; gap: 2.5rem; }
-  .navbar-logo img { height: 84px; }
-  .navbar-logo { font-size: 1.25rem; gap: 0.875rem; }
-  .navbar { padding: 0.75rem var(--gutter); }
-  .navbar.scrolled { padding: 0.5rem var(--gutter); }
-  .navbar.scrolled .navbar-inner { height: 66px; }
-  .navbar.scrolled .navbar-logo img { height: 68px; }
 }
 
 @media (max-width: 1024px) {
