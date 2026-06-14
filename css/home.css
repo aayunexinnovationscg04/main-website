@@ -17,7 +17,7 @@
 }
 
 [data-theme="light"] .hero {
-  background: linear-gradient(170deg, #F8FAFB 0%, #EEF3FF 60%, #F8FAFB 100%);
+  background: linear-gradient(170deg, #F5F5F7 0%, #EAEAEE 60%, #F5F5F7 100%);
 }
 
 /* Subtle radial glows */

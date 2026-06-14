@@ -3,7 +3,7 @@
    main.css - Orange flame + Navy blue brand, Plus Jakarta Sans headings
 ================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 /* ================================================================
    1. THEME: DARK (default)
@@ -16,15 +16,15 @@
   --bg-card-hover: #1F304A;
   --bg-elevated:   #243854;
   --bg-glass:      rgba(15, 24, 36, 0.88);
-  --bg-white:      #1A2840;
-  --bg-white-alt:  #141F2E;
+  --bg-white:      #141F2E;
+  --bg-white-alt:  #0F1824;
 
-  --text-primary:        #B8D0EC;
-  --text-secondary:      #6888A8;
-  --text-heading:        #F0F6FF;
-  --text-muted:          #486480;
-  --text-dark:           #F0F6FF;
-  --text-dark-secondary: #96B8D8;
+  --text-primary:        #C8DCEF;
+  --text-secondary:      #7898B8;
+  --text-heading:        #F2F8FF;
+  --text-muted:          #526E88;
+  --text-dark:           #F2F8FF;
+  --text-dark-secondary: #A8C8E0;
 
   /* PRIMARY: Orange - the Flame */
   --orange:             #D96515;
@@ -81,8 +81,8 @@
   --shadow-blue-lg:  0 8px 42px rgba(43, 94, 232, 0.18);
   --shadow-card:     0 1px 4px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.07);
 
-  --font-heading: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
-  --font-body:    'Inter', system-ui, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
 
   --container-max:    1280px;
   --container-narrow: 960px;
@@ -202,7 +202,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
   color: var(--text-primary);
   background-color: var(--bg-primary);
@@ -1527,17 +1527,17 @@ button { cursor: pointer; }
 
 .reveal-left {
   opacity: 0;
-  transform: translateX(-36px);
+  transform: translateY(28px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
-.reveal-left.revealed { opacity: 1; transform: translateX(0); }
+.reveal-left.revealed { opacity: 1; transform: translateY(0); }
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(36px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
 }
-.reveal-right.revealed { opacity: 1; transform: translateX(0); }
+.reveal-right.revealed { opacity: 1; transform: translateY(0); }
 
 .reveal-scale {
   opacity: 0;

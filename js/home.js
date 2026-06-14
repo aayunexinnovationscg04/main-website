@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ============================================================
    HERO IMAGE SLIDER
-   - Auto-advances every 4 seconds
-   - Prev / Next buttons
-   - Dot pagination
-   - Touch / swipe support (mobile)
-   - Pauses on hover (desktop)
+   Seamless infinite forward loop:
+   - All slides are cloned and appended to the end
+   - Auto-advances forward only, never jumps backward
+   - When clone boundary is reached, snaps silently to real position
+   - Prev/Next buttons, dot pagination, touch/swipe, keyboard
 ============================================================ */
 function initHeroSlider() {
   const track         = document.getElementById('slider-track');
@@ -25,34 +25,73 @@ function initHeroSlider() {
 
   if (!track) return;
 
-  const slides = Array.from(track.querySelectorAll('.slide'));
-  const total  = slides.length;
+  const realSlides = Array.from(track.querySelectorAll('.slide'));
+  const total      = realSlides.length;
   if (total === 0) return;
 
-  let current    = 0;
-  let timer      = null;
-  let touchStart = 0;
+  /* Append clones so forward scroll can loop seamlessly */
+  realSlides.forEach(s => track.appendChild(s.cloneNode(true)));
 
-  /* --- Build dot buttons --- */
-  slides.forEach((_, i) => {
+  let pos          = 0;     /* current slide index (can go beyond total into clones) */
+  let timer        = null;
+  let touchStartX  = 0;
+  let busy         = false; /* prevent overlapping animations */
+
+  /* --- Build dot buttons for real slides only --- */
+  realSlides.forEach((_, i) => {
     const dot = document.createElement('button');
-    dot.className    = 'slider-dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
     dot.setAttribute('role', 'tab');
-    dot.addEventListener('click', () => { stop(); goTo(i); start(); });
+    dot.addEventListener('click', () => {
+      stop();
+      busy = false;
+      setPos(i, true);
+      start();
+    });
     dotsContainer && dotsContainer.appendChild(dot);
   });
 
-  /* --- Core navigation --- */
-  function goTo(index) {
-    current = ((index % total) + total) % total;
-    track.style.transform = 'translateX(-' + (current * 100) + '%)';
-    const dots = dotsContainer && dotsContainer.querySelectorAll('.slider-dot');
-    dots && dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  function syncDots() {
+    const realIdx = pos % total;
+    const dots    = dotsContainer && dotsContainer.querySelectorAll('.slider-dot');
+    dots && dots.forEach((d, i) => d.classList.toggle('active', i === realIdx));
   }
 
-  function next() { goTo(current + 1); }
-  function prev() { goTo(current - 1); }
+  function setPos(index, animate) {
+    track.style.transition = animate
+      ? 'transform 0.52s cubic-bezier(0.4, 0, 0.2, 1)'
+      : 'none';
+    track.style.transform  = `translateX(-${index * 100}%)`;
+    pos = index;
+    syncDots();
+  }
+
+  /* When transition ends: if we landed in the clone zone, silently snap back to the
+     equivalent real slide. The two positions look identical so no visual jump occurs. */
+  track.addEventListener('transitionend', () => {
+    busy = false;
+    if (pos >= total) {
+      setPos(pos - total, false);
+      /* Force a synchronous reflow so the browser registers the instant position
+         change before the next transition can fire. */
+      track.getBoundingClientRect();
+    }
+  });
+
+  function next() {
+    if (busy) return;
+    busy = true;
+    setPos(pos + 1, true);
+  }
+
+  function prev() {
+    if (busy) return;
+    busy = true;
+    /* Backward: wrap to last real slide when at 0, otherwise step back */
+    const target = pos <= 0 ? total - 1 : pos - 1;
+    setPos(target, true);
+  }
 
   /* --- Auto-play --- */
   function start() { timer = setInterval(next, 4000); }
@@ -61,34 +100,33 @@ function initHeroSlider() {
   start();
 
   /* --- Arrow buttons --- */
-  if (btnPrev) btnPrev.addEventListener('click', () => { stop(); prev(); start(); });
-  if (btnNext) btnNext.addEventListener('click', () => { stop(); next(); start(); });
+  if (btnPrev) btnPrev.addEventListener('click', () => { stop(); busy = false; prev(); start(); });
+  if (btnNext) btnNext.addEventListener('click', () => { stop(); busy = false; next(); start(); });
 
   /* --- Touch / swipe --- */
   if (sliderEl) {
     sliderEl.addEventListener('touchstart', e => {
-      touchStart = e.touches[0].clientX;
+      touchStartX = e.touches[0].clientX;
       stop();
     }, { passive: true });
 
     sliderEl.addEventListener('touchend', e => {
-      const diff = touchStart - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 44) {
-        diff > 0 ? next() : prev();
+      const dx = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(dx) > 44) {
+        busy = false;
+        dx > 0 ? next() : prev();
       }
       start();
     }, { passive: true });
 
-    /* Pause auto-play while hovering (pointer devices only) */
+    /* Pause on hover (pointer devices only) */
     sliderEl.addEventListener('mouseenter', stop);
     sliderEl.addEventListener('mouseleave', start);
-  }
 
-  /* --- Keyboard accessibility --- */
-  if (sliderEl) {
+    /* Keyboard */
     sliderEl.addEventListener('keydown', e => {
-      if (e.key === 'ArrowLeft')  { stop(); prev(); start(); }
-      if (e.key === 'ArrowRight') { stop(); next(); start(); }
+      if (e.key === 'ArrowLeft')  { stop(); busy = false; prev(); start(); }
+      if (e.key === 'ArrowRight') { stop(); busy = false; next(); start(); }
     });
   }
 }
