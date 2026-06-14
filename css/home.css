@@ -10,14 +10,14 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 96px;
+  padding-top: clamp(96px, 8.5vw, 160px);
   position: relative;
   overflow: hidden;
   background: var(--bg-primary);
 }
 
 [data-theme="light"] .hero {
-  background: linear-gradient(170deg, #F5F5F7 0%, #EAEAEE 60%, #F5F5F7 100%);
+  background: linear-gradient(170deg, #FBF6F0 0%, #F4EDE3 60%, #FBF6F0 100%);
 }
 
 /* Subtle radial glows */
@@ -91,7 +91,7 @@
 .hero-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3.5rem;
+  gap: clamp(2.5rem, 4.5vw, 7rem);
   align-items: center;
   position: relative;
   z-index: 1;
@@ -99,7 +99,7 @@
 }
 
 /* ---- HERO CONTENT ---- */
-.hero-content { max-width: 560px; }
+.hero-content { max-width: clamp(480px, 44vw, 960px); }
 
 .hero-badge-row {
   display: flex;
@@ -182,7 +182,7 @@
 
 .hero-headline {
   font-family: var(--font-heading);
-  font-size: clamp(2.75rem, 5.5vw, 4.75rem);
+  font-size: clamp(2.75rem, 5.5vw, 7rem);
   font-weight: 800;
   line-height: 1.04;
   letter-spacing: -0.04em;
@@ -197,7 +197,7 @@
   line-height: 1.75;
   color: var(--text-secondary);
   margin-bottom: 2rem;
-  max-width: 480px;
+  max-width: clamp(400px, 37.5vw, 800px);
 }
 
 .hero-cta {
@@ -281,7 +281,7 @@
 .hero-slider {
   position: relative;
   width: 100%;
-  max-width: 540px;
+  max-width: clamp(440px, 42vw, 900px);
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow:
@@ -356,7 +356,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 36px; height: 36px;
+  width: clamp(32px, 2.8vw, 60px); height: clamp(32px, 2.8vw, 60px);
   border-radius: 50%;
   background: rgba(10, 18, 34, 0.65);
   backdrop-filter: blur(8px);
@@ -379,7 +379,7 @@
 
 .slider-btn-prev { left: 10px; }
 .slider-btn-next { right: 10px; }
-.slider-btn i, .slider-btn svg { width: 17px; height: 17px; stroke-width: 2.5px; }
+.slider-btn i, .slider-btn svg { width: clamp(15px, 1.35vw, 28px); height: clamp(15px, 1.35vw, 28px); stroke-width: 2.5px; }
 
 [data-theme="light"] .slider-btn {
   background: rgba(255, 255, 255, 0.82);
@@ -399,7 +399,7 @@
 }
 
 .slider-dot {
-  width: 5px; height: 5px;
+  width: clamp(5px, 0.4vw, 9px); height: clamp(5px, 0.4vw, 9px);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.38);
   border: none;
@@ -411,7 +411,7 @@
 
 .slider-dot.active {
   background: var(--orange);
-  width: 16px;
+  width: clamp(14px, 1.25vw, 26px);
   border-radius: 3px;
 }
 
@@ -477,7 +477,7 @@
 
 .proof-number {
   font-family: var(--font-heading);
-  font-size: clamp(2.25rem, 3.5vw, 3.25rem);
+  font-size: clamp(2.25rem, 3.5vw, 5rem);
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1;
@@ -1303,4 +1303,141 @@
   .hero-headline { font-size: 2.1rem; }
   .hero-stats { grid-template-columns: 1fr 1fr; }
   .hero-badge-row { display: none; }
+}
+
+
+/* ================================================================
+   HERO 3D MODEL
+================================================================ */
+.hero-3d-wrap {
+  position: relative;
+  width: 100%;
+  max-width: clamp(440px, 42vw, 900px);
+}
+
+.hero-3d-container {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: radial-gradient(ellipse at 35% 40%, #061230 0%, #010510 65%, #000308 100%);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(0, 100, 255, 0.12),
+    0 0 80px rgba(0, 50, 200, 0.10);
+}
+
+/* Fallback when WebGL is unavailable */
+.hero-3d-fallback {
+  background-image: url('../assets/device\ pic.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* ── Connectivity label overlays ──────────────────────────── */
+.h3d-label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.32rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: rgba(0, 12, 40, 0.80);
+  border: 1px solid rgba(0, 110, 255, 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: rgba(190, 220, 255, 0.92);
+  pointer-events: none;
+  white-space: nowrap;
+  animation: h3dFloat 4s ease-in-out infinite;
+}
+
+.h3d-label i,
+.h3d-label svg {
+  width: 9px;
+  height: 9px;
+  stroke-width: 2px;
+  flex-shrink: 0;
+  color: rgba(80, 170, 255, 0.9);
+}
+
+.h3d-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #0099ff;
+  flex-shrink: 0;
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+/* Label positions */
+.h3d-label-1 { top: 22%; left:  3%; animation-delay: 0.0s; }
+.h3d-label-2 { top:  8%; left: 26%; animation-delay: 0.9s; }
+.h3d-label-3 { top:  8%; right:24%; animation-delay: 1.7s; }
+.h3d-label-4 { top: 22%; right: 3%; animation-delay: 0.4s; }
+
+@keyframes h3dFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+/* ── Bottom feature strip ───────────────────────────────────── */
+.h3d-bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2.5rem 0.75rem 0.7rem;
+  background: linear-gradient(0deg, rgba(0, 5, 18, 0.90) 0%, transparent 100%);
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  pointer-events: none;
+}
+
+.h3d-feat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.h3d-feat i,
+.h3d-feat svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 1.75px;
+  color: rgba(0, 160, 255, 0.75);
+}
+
+.h3d-feat span {
+  font-size: 0.4375rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(170, 210, 255, 0.68);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .hero-3d-wrap { max-width: 480px; }
+}
+
+@media (max-width: 1024px) {
+  .hero-visual  { justify-content: center; }
+  .hero-3d-wrap { max-width: 520px; width: 100%; }
+}
+
+@media (max-width: 600px) {
+  .h3d-label       { font-size: 0.5rem; padding: 0.2rem 0.5rem; }
+  .h3d-label-2,
+  .h3d-label-3     { display: none; }
+  .h3d-feat span   { display: none; }
+  .h3d-feat i,
+  .h3d-feat svg    { width: 12px; height: 12px; }
 }

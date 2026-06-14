@@ -251,95 +251,40 @@
           </div>
         </div>
 
-        <!-- Right: Achievement & Media Slider -->
+        <!-- Right: 3D Device Visualization -->
         <div class="hero-visual reveal-scale">
-          <div class="hero-slider" id="hero-slider" role="region" aria-label="Awards and Media Coverage">
-            <div class="slider-viewport">
-              <div class="slider-track" id="slider-track">
+          <div class="hero-3d-wrap">
 
-                <div class="slide">
-                  <img src="assets/wins/IDE BOOTCAMP IIT GUWAHATI 1ST PRIZE 2023 Organised by AICTE &amp; MIC MoE.jpeg"
-                       alt="1st Prize - IIT Guwahati IDE Bootcamp 2023, organised by AICTE and MIC MoE" loading="eager">
-                  <div class="slide-label">
-                    <span class="slide-label-cat">National Win</span>
-                    IIT Guwahati · 1st Prize 2023
-                  </div>
-                </div>
+            <!-- Three.js canvas target -->
+            <div id="hero-3d-container" class="hero-3d-container" aria-label="Fuel Guard X 3D visualization"></div>
 
-                <div class="slide">
-                  <img src="assets/newspaper/WhatsApp Image 2026-06-05 at 1.29.03 PM.jpeg"
-                       alt="AAYUNEX Innovations featured in media" loading="lazy">
-                  <div class="slide-label">
-                    <span class="slide-label-cat">Press</span>
-                    Media Coverage
-                  </div>
-                </div>
-
-                <div class="slide">
-                  <img src="assets/wins/SHARK TANK BITD 2.0 1st Runner Up 3100 Rs.Cash Prize 2025.jpeg"
-                       alt="1st Runner Up at Shark Tank BITD 2.0, 2025" loading="lazy">
-                  <div class="slide-label">
-                    <span class="slide-label-cat">Award</span>
-                    Shark Tank BITD · 1st Runner Up 2025
-                  </div>
-                </div>
-
-                <div class="slide">
-                  <img src="assets/newspaper/WhatsApp Image 2026-06-05 at 1.29.25 PM.jpeg"
-                       alt="AAYUNEX Innovations regional press coverage" loading="lazy">
-                  <div class="slide-label">
-                    <span class="slide-label-cat">Press</span>
-                    Regional Media Feature
-                  </div>
-                </div>
-
-                <div class="slide">
-                  <img src="assets/wins/National Innovation Fest 2.0 op Jindal University 1st prize 15,000 rs cash prize 2023.jpeg"
-                       alt="1st Prize National Innovation Fest 2.0, OP Jindal University 2023" loading="lazy">
-                  <div class="slide-label">
-                    <span class="slide-label-cat">National Win</span>
-                    National Innovation Fest · 1st Prize 2023
-                  </div>
-                </div>
-
-                <div class="slide">
-                  <img src="assets/newspaper/WhatsApp Image 2026-06-05 at 1.29.02 PM.jpeg"
-                       alt="AAYUNEX in national press" loading="lazy">
-                  <div class="slide-label">
-                    <span class="slide-label-cat">Press</span>
-                    National Press Coverage
-                  </div>
-                </div>
-
-                <div class="slide">
-                  <img src="assets/wins/OP Jindal University Raigarh Technorollix 2025 NexGen startup &amp; Tech Lab 1st Prize 19,000 Rs.Cash Prize.jpeg"
-                       alt="1st Prize Technorollix 2025, OP Jindal University" loading="lazy">
-                  <div class="slide-label">
-                    <span class="slide-label-cat">Award</span>
-                    Technorollix 2025 · 1st Prize
-                  </div>
-                </div>
-
-                <div class="slide">
-                  <img src="assets/wins/IGNITION GRANT FROM CSVTU FORTE 2026.jpeg"
-                       alt="Ignition Grant from CSVTU FORTE 2026" loading="lazy">
-                  <div class="slide-label">
-                    <span class="slide-label-cat">Grant</span>
-                    CSVTU FORTE Ignition Grant 2026
-                  </div>
-                </div>
-
-              </div>
+            <!-- Connectivity label overlays -->
+            <div class="h3d-label h3d-label-1" aria-hidden="true">
+              <span class="h3d-dot"></span>
+              <i data-lucide="map-pin"></i>GPS
+            </div>
+            <div class="h3d-label h3d-label-2" aria-hidden="true">
+              <span class="h3d-dot"></span>
+              <i data-lucide="signal"></i>Cellular
+            </div>
+            <div class="h3d-label h3d-label-3" aria-hidden="true">
+              <span class="h3d-dot"></span>
+              <i data-lucide="cloud"></i>Cloud
+            </div>
+            <div class="h3d-label h3d-label-4" aria-hidden="true">
+              <span class="h3d-dot"></span>
+              <i data-lucide="brain-circuit"></i>AI Analytics
             </div>
 
-            <button class="slider-btn slider-btn-prev" id="slider-prev" aria-label="Previous slide">
-              <i data-lucide="chevron-left"></i>
-            </button>
-            <button class="slider-btn slider-btn-next" id="slider-next" aria-label="Next slide">
-              <i data-lucide="chevron-right"></i>
-            </button>
+            <!-- Bottom feature strip -->
+            <div class="h3d-bottom-bar" aria-hidden="true">
+              <div class="h3d-feat"><i data-lucide="shield-check"></i><span>Theft Detection</span></div>
+              <div class="h3d-feat"><i data-lucide="activity"></i><span>Real-Time</span></div>
+              <div class="h3d-feat"><i data-lucide="map-pin"></i><span>GPS Tracking</span></div>
+              <div class="h3d-feat"><i data-lucide="bell"></i><span>Smart Alerts</span></div>
+              <div class="h3d-feat"><i data-lucide="bar-chart-2"></i><span>Analytics</span></div>
+            </div>
 
-            <div class="slider-dots" id="slider-dots" role="tablist" aria-label="Slide navigation"></div>
           </div>
         </div>
 
@@ -756,6 +701,6 @@
   </footer>
 
   <script src="js/main.js"></script>
-  <script src="js/home.js"></script>
+  <script type="module" src="js/hero-3d.js"></script>
 </body>
 </html>
