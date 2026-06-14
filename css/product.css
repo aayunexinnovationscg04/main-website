@@ -105,50 +105,91 @@
   margin: 0 1rem;
 }
 
-/* --- Hero Visual --- */
+/* --- Hero Visual (3D only) --- */
 .product-hero-visual {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  align-items: stretch;
 }
 
-.product-visual-box {
-  width: 100%;
-  max-width: 500px;
-  aspect-ratio: 4 / 3;
-  border-radius: var(--radius-xl);
-  background: var(--bg-card);
-  border: 1px solid var(--border-orange);
+/* ── Embedded 3D canvas ── */
+.product-3d-wrap {
   position: relative;
+  width: 100%;
+  min-height: 460px;
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow:
-    0 24px 60px rgba(0,0,0,0.38),
-    0 0 0 1px rgba(217,101,21,0.10);
+  border: 1px solid rgba(217, 101, 21, 0.18);
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(217, 101, 21, 0.13) 0%, transparent 52%),
+    radial-gradient(ellipse at 20% 70%, rgba(0, 50, 140, 0.08) 0%, transparent 40%),
+    linear-gradient(180deg, #080e18 0%, #0a1120 100%);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.40);
+  transition: border-color 0.25s, box-shadow 0.25s;
 }
 
-[data-theme="light"] .product-visual-box {
-  box-shadow:
-    0 16px 48px rgba(0,0,0,0.12),
-    0 0 0 1px rgba(197,82,16,0.10);
-}
-
-.product-visual-box::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(217,101,21,0.06) 0%, transparent 65%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.product-visual-box img {
+#product-canvas {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 8px;
   display: block;
+  touch-action: auto;
 }
+
+.product-3d-wrap.interact-active #product-canvas {
+  touch-action: none;
+}
+
+.product-3d-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+.product-interact-btn {
+  pointer-events: all;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  background: rgba(8, 16, 30, 0.68);
+  border: 1px solid rgba(217, 101, 21, 0.42);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.product-interact-btn:hover {
+  background: rgba(217, 101, 21, 0.22);
+  border-color: rgba(217, 101, 21, 0.70);
+  color: #fff;
+}
+
+.product-interact-btn svg {
+  flex-shrink: 0;
+}
+
+.product-3d-wrap.interact-active {
+  border-color: rgba(217, 101, 21, 0.45);
+  box-shadow: 0 0 0 2px rgba(217, 101, 21, 0.18), 0 20px 56px rgba(0, 0, 0, 0.40);
+}
+
+.product-3d-wrap.interact-active .product-interact-btn {
+  background: rgba(217, 101, 21, 0.32);
+  border-color: rgba(217, 101, 21, 0.80);
+  color: #fff;
+}
+
 
 /* Floating badge */
 .product-visual-badge {
@@ -594,12 +635,12 @@
   .product-hero { min-height: auto; padding-top: 96px; }
   .product-hero-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
     padding: 1.5rem 0 2.5rem;
   }
-  .product-hero-content { max-width: 100%; }
-  .product-hero-visual { justify-content: center; }
-  .product-visual-box { max-width: 500px; }
+  .product-hero-content { max-width: 100%; order: 2; }
+  .product-hero-visual  { order: 1; }
+  .product-3d-wrap { min-height: 360px; }
 
   .ecosystem-cards { grid-template-columns: 1fr; max-width: 600px; margin-left: auto; margin-right: auto; }
   .tech-grid { grid-template-columns: repeat(2, 1fr); }
@@ -610,8 +651,7 @@
 /* Mobile landscape / large phones */
 @media (max-width: 768px) {
   .product-hero { padding-top: 88px; padding-bottom: 2.5rem; }
-  .product-hero-grid { gap: 2rem; }
-  .product-visual-box { aspect-ratio: 16 / 9; max-width: 100%; }
+  .product-3d-wrap { min-height: 300px; }
 
   .product-hero-stats { flex-wrap: wrap; }
   .product-hero-stats .stat { flex: 1 1 auto; min-width: 70px; }
@@ -627,8 +667,8 @@
 /* Small phones */
 @media (max-width: 480px) {
   .product-hero { padding-top: 80px; padding-bottom: 2rem; }
-  .product-hero-grid { gap: 1.5rem; }
-  .product-visual-box { aspect-ratio: 4 / 3; border-radius: var(--radius-lg); }
+  .product-hero-grid { gap: 1.25rem; }
+  .product-3d-wrap { min-height: 260px; border-radius: var(--radius-lg); }
   .product-visual-badge { display: none; }
 
   .product-hero-cta { flex-direction: column; }

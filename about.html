@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google Analytics -->
@@ -29,17 +29,17 @@
   <meta property="og:title" content="About Us - AAYUNEX Innovations | Fuel Guard X">
   <meta property="og:description" content="Learn about AAYUNEX Innovations - the deep-tech startup behind Fuel Guard X. Meet our leadership team and discover our mission to eliminate fuel fraud.">
   <meta property="og:url" content="https://aayunexinnovations.com/about">
-  <meta property="og:image" content="https://aayunexinnovations.com/assets/logo/removed_bg_logo.png">
+  <meta property="og:image" content="https://aayunexinnovations.com/assets/logo/logo_everywhere_to_be_used.png">
   <meta property="og:image:alt" content="AAYUNEX Innovations logo">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="About Us - AAYUNEX Innovations | Fuel Guard X">
   <meta name="twitter:description" content="Learn about AAYUNEX Innovations - the deep-tech startup behind Fuel Guard X. Meet our leadership team and discover our mission to eliminate fuel fraud.">
-  <meta name="twitter:image" content="https://aayunexinnovations.com/assets/logo/removed_bg_logo.png">
+  <meta name="twitter:image" content="https://aayunexinnovations.com/assets/logo/logo_everywhere_to_be_used.png">
   <meta name="twitter:image:alt" content="AAYUNEX Innovations logo">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AAYUNEX Innovations","url":"https://aayunexinnovations.com","logo":"https://aayunexinnovations.com/assets/logo/removed_bg_logo.png","sameAs":["https://www.linkedin.com/company/aayunex-innovation-opc-pvt-ltd/","https://www.instagram.com/aayunex_innovations?igsh=OHUwNGZhY3VjMmQ0"],"description":"AAYUNEX Innovations builds Fuel Guard X, an AI-powered fuel intelligence and theft detection system for fleet operators and commercial vehicles.","address":{"@type":"PostalAddress","streetAddress":"OPJU Innovation Center","addressLocality":"Raipur","addressRegion":"Chhattisgarh","postalCode":"492001","addressCountry":"IN"},"foundingLocation":"Raipur, Chhattisgarh","founders":[{"@type":"Person","name":"Ayush Joshi","jobTitle":"Founder & CEO"},{"@type":"Person","name":"Gitesh Khilari","jobTitle":"Co-Founder & COO"},{"@type":"Person","name":"Vasu Sahu","jobTitle":"Co-Founder & CTO"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AAYUNEX Innovations","url":"https://aayunexinnovations.com","logo":"https://aayunexinnovations.com/assets/logo/logo_everywhere_to_be_used.png","sameAs":["https://www.linkedin.com/company/aayunex-innovation-opc-pvt-ltd/","https://www.instagram.com/aayunex_innovations?igsh=OHUwNGZhY3VjMmQ0"],"description":"AAYUNEX Innovations builds Fuel Guard X, an AI-powered fuel intelligence and theft detection system for fleet operators and commercial vehicles.","address":{"@type":"PostalAddress","streetAddress":"OPJU Innovation Center","addressLocality":"Raipur","addressRegion":"Chhattisgarh","postalCode":"492001","addressCountry":"IN"},"foundingLocation":"Raipur, Chhattisgarh","founders":[{"@type":"Person","name":"Ayush Joshi","jobTitle":"Founder & CEO"},{"@type":"Person","name":"Gitesh Khilari","jobTitle":"Co-Founder & COO"},{"@type":"Person","name":"Vasu Sahu","jobTitle":"Co-Founder & CTO"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AAYUNEX Innovations","url":"https://aayunexinnovations.com","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://aayunexinnovations.com/?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://aayunexinnovations.com"},{"@type":"ListItem","position":2,"name":"About Us","item":"https://aayunexinnovations.com/about"}]}</script>
-  <link rel="icon" type="image/png" href="assets/logo/removed_bg_logo.png">
+  <link rel="icon" type="image/png" href="assets/logo/logo_everywhere_to_be_used.png">
 
   <!-- Preload Critical Assets -->
   <link rel="preload" href="css/main.css" as="style">
@@ -54,6 +54,16 @@
   <script>!function(){var t=localStorage.getItem("theme")||"light";if(t==="orange")t="light";document.documentElement.setAttribute("data-theme",t)}();</script>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/about.css">
+
+  <!-- Three.js module imports (for 3D hero) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -61,23 +71,25 @@
   <nav class="navbar" id="navbar">
     <div class="navbar-inner">
       <a href="index.html" class="navbar-logo">
-        <img src="assets/logo/removed_bg_logo.png" alt="AAYUNEX Innovations Logo">
+        <img src="assets/logo/logo_everywhere_to_be_used.png" alt="AAYUNEX Innovations Logo">
         <span>AAYUNEX <span class="logo-text-accent">Innovations</span></span>
       </a>
       <div class="navbar-links">
-        <a href="index.html">Home</a>
         <a href="product.html">Product</a>
         <a href="features.html">Features</a>
+        <a href="index.html">Home</a>
         <a href="achievements.html">Achievements</a>
         <a href="about.html" class="active">About</a>
       </div>
       <div class="navbar-cta">
         <a href="contact.html" class="btn btn-primary btn-sm">Contact Us</a>
       </div>
+
       <div class="navbar-theme-switcher">
         <button class="theme-dot" data-theme="light" aria-label="Light Theme" title="Light Theme"></button>
         <button class="theme-dot" data-theme="dark"  aria-label="Dark Theme"  title="Dark Theme"></button>
       </div>
+
       <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
@@ -86,7 +98,7 @@
   <div class="navbar-mobile-menu" id="navbar-mobile-menu">
     <div class="mobile-menu-header">
       <a href="index.html" class="mobile-menu-logo">
-        <img src="assets/logo/removed_bg_logo.png" alt="AAYUNEX Logo" width="28" height="28">
+        <img src="assets/logo/logo_everywhere_to_be_used.png" alt="AAYUNEX Logo" width="28" height="28">
         <span>AAYUNEX <span class="logo-text-accent">Innovations</span></span>
       </a>
       <button class="navbar-mobile-close" id="navbar-mobile-close" aria-label="Close menu">
@@ -142,16 +154,62 @@
 
 
   <!-- HERO -->
-  <section class="about-hero section-dark section" id="about-hero">
+  <section class="about-hero section-dark" id="about-hero">
     <div class="container">
-      <div class="about-hero-content reveal">
-        <span class="badge badge-orange badge-dot badge-pulse" style="margin-bottom:1.5rem; display:inline-flex;">Our Story</span>
-        <h1 class="headline-xl">
-          Architecting the future of fuel security.
-        </h1>
-        <p class="body-lg">
-          AAYUNEX Innovations is a deep-tech leader dedicated to eliminating industrial inefficiencies. We leverage advanced hardware and AI-driven insights to protect the lifeblood of global logistics.
-        </p>
+      <div class="about-hero-grid">
+
+        <div class="about-hero-content reveal-left">
+          <span class="badge badge-orange badge-dot badge-pulse" style="display:inline-flex;">Our Story</span>
+          <h1 class="headline-xl">
+            Architecting the future of<br>
+            <span class="text-gradient">fuel security.</span>
+          </h1>
+          <p class="body-lg">
+            AAYUNEX Innovations is a deep-tech leader dedicated to eliminating industrial inefficiencies. We leverage advanced hardware and AI-driven insights to protect the lifeblood of global logistics.
+          </p>
+          <div class="about-hero-cta">
+            <a href="contact.html#demo" class="btn btn-primary btn-lg">Request a Demo</a>
+            <a href="product.html" class="btn btn-secondary btn-lg">
+              <i data-lucide="package"></i>
+              View Product
+            </a>
+          </div>
+          <div class="about-hero-stats">
+            <div class="stat">
+              <span class="stat-value">3</span>
+              <span class="stat-label">Founders</span>
+            </div>
+            <div class="stat-div"></div>
+            <div class="stat">
+              <span class="stat-value">4+</span>
+              <span class="stat-label">Incubators</span>
+            </div>
+            <div class="stat-div"></div>
+            <div class="stat">
+              <span class="stat-value">DPIIT</span>
+              <span class="stat-label">Recognised</span>
+            </div>
+            <div class="stat-div"></div>
+            <div class="stat">
+              <span class="stat-value">Deep</span>
+              <span class="stat-label">Tech Focus</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-hero-visual reveal-right">
+          <div class="about-3d-wrap" id="about-3d-wrap">
+            <canvas id="about-hero-canvas" aria-label="3D visualization of AAYUNEX innovation ecosystem — orbital rings representing hardware, software, and AI pillars"></canvas>
+            <div class="about-3d-overlay">
+              <button class="about-interact-btn" id="about-interact-btn" aria-label="Toggle 3D interaction">
+                <svg class="icon-interact" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l7.07 17 2.51-7.39L21 11.07z"/></svg>
+                <svg class="icon-exit" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span class="btn-label">Interact</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -321,7 +379,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-brand-logo">
-            <img src="assets/logo/removed_bg_logo.png" alt="AAYUNEX Logo">
+            <img src="assets/logo/logo_everywhere_to_be_used.png" alt="AAYUNEX Logo">
             <span>AAYUNEX Innovations</span>
           </div>
           <p>Precision fuel verification and advanced protection systems for the modern industrial enterprise. Eliminating inefficiencies through deep-tech innovation.</p>
@@ -349,6 +407,7 @@
     </div>
   </footer>
 
+  <script type="module" src="js/about-hero.js"></script>
   <script src="js/main.js"></script>
   <script>lucide.createIcons();</script>
 </body>

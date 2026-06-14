@@ -117,18 +117,52 @@ function initNavbar() {
 
   if (!toggle || !menu) return;
 
+  let savedScrollY = 0;
+
+  // Prevent scroll on touchmove outside the menu (iOS Safari momentum scroll)
+  const blockTouchScroll = (e) => {
+    if (menu.contains(e.target)) return;
+    e.preventDefault();
+  };
+
   const openMenu = () => {
+    savedScrollY = window.scrollY;
     toggle.classList.add('active');
     menu.classList.add('open');
     backdrop && backdrop.classList.add('open');
-    document.body.style.overflow = 'hidden';
+
+    // Compensate for scrollbar disappearing (Windows desktop — prevents layout shift)
+    const scrollbarW = window.innerWidth - document.documentElement.clientWidth;
+    if (scrollbarW > 0) document.body.style.paddingRight = scrollbarW + 'px';
+
+    // Lock scroll: html overflow stops Windows mouse/trackpad/keyboard scroll;
+    // body position:fixed stops iOS Safari momentum scroll
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow   = 'hidden';
+    document.body.style.position   = 'fixed';
+    document.body.style.top        = `-${savedScrollY}px`;
+    document.body.style.left       = '0';
+    document.body.style.right      = '0';
+
+    // Extra iOS touchmove block
+    document.addEventListener('touchmove', blockTouchScroll, { passive: false });
   };
 
   const closeMenu = () => {
     toggle.classList.remove('active');
     menu.classList.remove('open');
     backdrop && backdrop.classList.remove('open');
-    document.body.style.overflow = '';
+
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow   = '';
+    document.body.style.position   = '';
+    document.body.style.top        = '';
+    document.body.style.left       = '';
+    document.body.style.right      = '';
+    document.body.style.paddingRight = '';
+
+    document.removeEventListener('touchmove', blockTouchScroll);
+    window.scrollTo(0, savedScrollY);
   };
 
   toggle.addEventListener('click', () => {

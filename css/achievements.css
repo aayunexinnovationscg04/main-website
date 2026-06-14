@@ -56,14 +56,14 @@
   border-bottom: 1px solid var(--border-subtle);
 }
 
-/* Fix for IIM Sambalpur image specifically */
-.ach-card:nth-child(2) .ach-card-image {
+/* Fix for IIM Sambalpur image (chronological position 4) */
+.ach-card:nth-child(4) .ach-card-image {
   object-fit: contain;
   background-color: var(--bg-elevated);
 }
 
-/* Show National Innovation Fest image in full */
-.ach-card:nth-child(7) .ach-card-image {
+/* Show National Innovation Fest image in full (chronological position 3) */
+.ach-card:nth-child(3) .ach-card-image {
   object-fit: contain;
   background-color: var(--bg-elevated);
 }
@@ -93,6 +93,68 @@
 }
 
 .ach-card-year {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+
+/* Grants Section */
+.grants-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.grant-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-base);
+}
+
+.grant-card:hover {
+  border-color: var(--border-light);
+  box-shadow: var(--shadow-md);
+}
+
+.grant-card-image {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  background-color: var(--bg-elevated);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 1rem;
+}
+
+.grant-card-body {
+  padding: 1.5rem;
+}
+
+.grant-card-body .badge { margin-bottom: 0.75rem; }
+
+.grant-card-body h3 {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.grant-card-body p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.grant-card-year {
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-secondary);
@@ -217,6 +279,7 @@
 @media (max-width: 768px) {
   .achievements-hero { min-height: auto; padding-top: 100px; padding-bottom: 2rem; }
   .achievements-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .grants-grid { grid-template-columns: 1fr; max-width: 480px; }
   .media-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
   .achievements-cta { padding: 2.5rem 1.5rem; }
   .partners-logo-grid { gap: 2rem; }
