@@ -1595,6 +1595,23 @@ button { cursor: pointer; }
   }
 }
 
+/* Compact navbar for smaller desktops (769px–1180px) to prevent link overflow */
+@media (min-width: 769px) and (max-width: 1180px) {
+  .navbar-links a { padding: 0.5rem 0.55rem; font-size: 0.8125rem; }
+  .navbar-inner { gap: 0.75rem; }
+}
+
+/* Large screens (1440px+) — wider content area */
+@media (min-width: 1440px) {
+  :root { --container-max: 1380px; }
+}
+
+/* Extra-large screens (1920px+) — even wider content area */
+@media (min-width: 1920px) {
+  :root { --container-max: 1680px; }
+  .navbar-links a { font-size: 0.9375rem; padding: 0.5rem 1.125rem; }
+}
+
 @media (max-width: 1024px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
