@@ -4,135 +4,91 @@
 ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  animateCounters();
-  initHeroParticles();
-  initHeroChartBars();
-  initHeroBarLoop();
+  initHeroSlider();
 });
 
 
 /* ============================================================
-   HERO PARTICLES - orange + blue brand colors
+   HERO IMAGE SLIDER
+   - Auto-advances every 4 seconds
+   - Prev / Next buttons
+   - Dot pagination
+   - Touch / swipe support (mobile)
+   - Pauses on hover (desktop)
 ============================================================ */
-function initHeroParticles() {
-  const hero = document.querySelector('.hero');
-  if (!hero) return;
+function initHeroSlider() {
+  const track         = document.getElementById('slider-track');
+  const dotsContainer = document.getElementById('slider-dots');
+  const btnPrev       = document.getElementById('slider-prev');
+  const btnNext       = document.getElementById('slider-next');
+  const sliderEl      = document.getElementById('hero-slider');
 
-  const container = document.createElement('div');
-  container.className = 'hero-particles-layer';
-  Object.assign(container.style, {
-    position: 'absolute',
-    inset: '0',
-    pointerEvents: 'none',
-    overflow: 'hidden',
-    zIndex: '0',
+  if (!track) return;
+
+  const slides = Array.from(track.querySelectorAll('.slide'));
+  const total  = slides.length;
+  if (total === 0) return;
+
+  let current    = 0;
+  let timer      = null;
+  let touchStart = 0;
+
+  /* --- Build dot buttons --- */
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className    = 'slider-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.setAttribute('role', 'tab');
+    dot.addEventListener('click', () => { stop(); goTo(i); start(); });
+    dotsContainer && dotsContainer.appendChild(dot);
   });
 
-  const count = window.innerWidth < 600 ? 10 : 24;
-
-  for (let i = 0; i < count; i++) {
-    const p    = document.createElement('span');
-    const size = (Math.random() * 3.5 + 1.5).toFixed(1);
-    const x    = (Math.random() * 95).toFixed(1);
-    const y    = (Math.random() * 90).toFixed(1);
-    const dur  = (Math.random() * 10 + 8).toFixed(1);
-    const del  = (Math.random() * 8).toFixed(1);
-    const op   = (Math.random() * 0.3 + 0.06).toFixed(2);
-
-    /* Randomly orange or blue - brand colors */
-    const r   = Math.random();
-    const hue = r < 0.55
-      ? '245, 115, 32'   /* orange flame */
-      : '43, 94, 232';   /* blue ring    */
-
-    Object.assign(p.style, {
-      position:     'absolute',
-      left:         x + '%',
-      top:          y + '%',
-      width:        size + 'px',
-      height:       size + 'px',
-      borderRadius: '50%',
-      background:   `rgba(${hue}, ${op})`,
-      animation:    `particleFloat ${dur}s ease-in-out ${del}s infinite`,
-      willChange:   'transform',
-    });
-    container.appendChild(p);
+  /* --- Core navigation --- */
+  function goTo(index) {
+    current = ((index % total) + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    const dots = dotsContainer && dotsContainer.querySelectorAll('.slider-dot');
+    dots && dots.forEach((d, i) => d.classList.toggle('active', i === current));
   }
 
-  /* Decorative ring */
-  const ring = document.createElement('div');
-  Object.assign(ring.style, {
-    position:     'absolute',
-    top:          '-160px',
-    right:        '-160px',
-    width:        '420px',
-    height:       '420px',
-    borderRadius: '50%',
-    border:       '1px solid rgba(245, 115, 32, 0.07)',
-    pointerEvents:'none',
-    animation:    'ringPulse 7s ease-in-out infinite',
-  });
-  container.appendChild(ring);
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
 
-  hero.insertBefore(container, hero.firstChild);
-}
+  /* --- Auto-play --- */
+  function start() { timer = setInterval(next, 4000); }
+  function stop()  { clearInterval(timer); timer = null; }
 
+  start();
 
-/* ============================================================
-   HERO CHART BARS - animate from 0 on viewport entry
-============================================================ */
-function initHeroChartBars() {
-  const chart = document.querySelector('#hero-chart-bars');
-  if (!chart) return;
+  /* --- Arrow buttons --- */
+  if (btnPrev) btnPrev.addEventListener('click', () => { stop(); prev(); start(); });
+  if (btnNext) btnNext.addEventListener('click', () => { stop(); next(); start(); });
 
-  const bars = chart.querySelectorAll('.mcb');
-  const targets = [];
+  /* --- Touch / swipe --- */
+  if (sliderEl) {
+    sliderEl.addEventListener('touchstart', e => {
+      touchStart = e.touches[0].clientX;
+      stop();
+    }, { passive: true });
 
-  bars.forEach(b => {
-    const raw   = b.getAttribute('style') || '';
-    const match = raw.match(/--h:\s*([\d.]+%)/);
-    targets.push(match ? match[1] : '50%');
-    b.style.height = '0%';
-  });
+    sliderEl.addEventListener('touchend', e => {
+      const diff = touchStart - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 44) {
+        diff > 0 ? next() : prev();
+      }
+      start();
+    }, { passive: true });
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      bars.forEach((b, i) => {
-        setTimeout(() => {
-          b.style.transition = `height ${0.45 + i * 0.05}s cubic-bezier(0.4, 0, 0.2, 1)`;
-          b.style.height     = targets[i];
-        }, 200 + i * 55);
-      });
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: 0.15 });
-
-  observer.observe(chart);
-}
-
-
-/* ============================================================
-   HERO CHART - subtle shimmer loop every 3.5s
-============================================================ */
-function initHeroBarLoop() {
-  const chart = document.querySelector('#hero-chart-bars');
-  if (!chart) return;
-
-  const bases = [42, 68, 50, 82, 58, 72, 45, 88, 60, 76, 48, 92];
-
-  function shimmer() {
-    const bars = chart.querySelectorAll('.mcb');
-    bars.forEach((b, i) => {
-      const jitter = bases[i] + (Math.random() * 14 - 7);
-      const h      = Math.min(95, Math.max(15, jitter)).toFixed(0);
-      b.style.transition = 'height 1.4s ease-in-out';
-      b.style.height     = h + '%';
-    });
+    /* Pause auto-play while hovering (pointer devices only) */
+    sliderEl.addEventListener('mouseenter', stop);
+    sliderEl.addEventListener('mouseleave', start);
   }
 
-  setTimeout(() => {
-    shimmer();
-    setInterval(shimmer, 3500);
-  }, 3200);
+  /* --- Keyboard accessibility --- */
+  if (sliderEl) {
+    sliderEl.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft')  { stop(); prev(); start(); }
+      if (e.key === 'ArrowRight') { stop(); next(); start(); }
+    });
+  }
 }

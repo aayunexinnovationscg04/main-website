@@ -145,7 +145,7 @@ function initNavbar() {
     if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
   });
 
-  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  menu.querySelectorAll('.mobile-menu-nav a, .navbar-mobile-menu .btn').forEach(link => link.addEventListener('click', closeMenu));
 }
 
 
@@ -219,7 +219,7 @@ function initSmoothScroll() {
    ============================================================ */
 function initActiveNavLink() {
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.navbar-links a, .navbar-mobile-menu a').forEach(link => {
+  document.querySelectorAll('.navbar-links a, .mobile-menu-nav a').forEach(link => {
     const href = link.getAttribute('href');
     if (!href) return;
     if (href.split('/').pop() === currentPage) link.classList.add('active');

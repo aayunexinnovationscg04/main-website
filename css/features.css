@@ -16,7 +16,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 70%, rgba(249, 115, 22, 0.06) 0%, transparent 50%);
+  background: radial-gradient(ellipse at 50% 70%, rgba(217, 101, 21,0.06) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -64,7 +64,6 @@
 .feature-detail-card:hover {
   background-color: var(--bg-card-hover);
   border-color: var(--border-light);
-  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
 

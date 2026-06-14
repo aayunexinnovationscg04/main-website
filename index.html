@@ -127,14 +127,44 @@
 
   <!-- Mobile Menu -->
   <div class="navbar-mobile-menu" id="navbar-mobile-menu">
-    <button class="navbar-mobile-close" id="navbar-mobile-close" aria-label="Close menu">
-      <i data-lucide="x"></i>
-    </button>
-    <a href="index.html" class="active">Home</a>
-    <a href="product.html">Product</a>
-    <a href="features.html">Features</a>
-    <a href="achievements.html">Achievements</a>
-    <a href="about.html">About</a>
+    <div class="mobile-menu-header">
+      <a href="index.html" class="mobile-menu-logo">
+        <img src="assets/logo/removed_bg_logo.png" alt="AAYUNEX Logo" width="28" height="28">
+        <span>AAYUNEX <span class="logo-text-accent">Innovations</span></span>
+      </a>
+      <button class="navbar-mobile-close" id="navbar-mobile-close" aria-label="Close menu">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+
+    <nav class="mobile-menu-nav">
+      <a href="index.html" class="active">
+        <span class="mnav-icon"><i data-lucide="home"></i></span>
+        <span class="mnav-text">Home</span>
+        <span class="mnav-chevron"><i data-lucide="chevron-right"></i></span>
+      </a>
+      <a href="product.html">
+        <span class="mnav-icon"><i data-lucide="package"></i></span>
+        <span class="mnav-text">Product</span>
+        <span class="mnav-chevron"><i data-lucide="chevron-right"></i></span>
+      </a>
+      <a href="features.html">
+        <span class="mnav-icon"><i data-lucide="zap"></i></span>
+        <span class="mnav-text">Features</span>
+        <span class="mnav-chevron"><i data-lucide="chevron-right"></i></span>
+      </a>
+      <a href="achievements.html">
+        <span class="mnav-icon"><i data-lucide="trophy"></i></span>
+        <span class="mnav-text">Achievements</span>
+        <span class="mnav-chevron"><i data-lucide="chevron-right"></i></span>
+      </a>
+      <a href="about.html">
+        <span class="mnav-icon"><i data-lucide="users"></i></span>
+        <span class="mnav-text">About</span>
+        <span class="mnav-chevron"><i data-lucide="chevron-right"></i></span>
+      </a>
+    </nav>
+
     <div class="mobile-menu-divider"></div>
     <a href="contact.html" class="btn btn-primary">Contact Us</a>
 
@@ -160,23 +190,14 @@
        HERO SECTION
   ============================================================ -->
   <section class="hero section-dark" id="hero">
-    <!-- Background decorators -->
     <div class="hero-grid-overlay"></div>
     <div class="hero-glow-line"></div>
-    <div class="hero-beam-left"></div>
-    <div class="hero-beam-right"></div>
 
     <div class="container">
       <div class="hero-inner">
 
         <!-- Left: Content -->
         <div class="hero-content">
-
-          <!-- Live status bar -->
-          <div class="hero-live-bar">
-            <span class="hero-live-dot"></span>
-            <span>Live monitoring - <strong>fleet vehicles active right now</strong></span>
-          </div>
 
           <div class="hero-badge-row">
             <span class="hero-pill">
@@ -190,21 +211,14 @@
             </span>
           </div>
 
+          <p class="hero-presents">AAYUNEX Innovations presents</p>
           <h1 class="hero-headline">
-            Stop Fuel Theft<br>
-            <span class="text-gradient">Before It Happens.</span>
+            Fuel Guard <span class="text-gradient">X</span>
           </h1>
 
           <p class="hero-subtitle">
-            Precision ultrasonic sensors + AI anomaly detection + real-time fleet intelligence - purpose-built for commercial vehicles where every litre counts.
+            AI-powered fuel monitoring and theft detection for commercial fleets. Precision sensors, real-time telemetry, and actionable fleet intelligence - built in India.
           </p>
-
-          <!-- Quick-scan feature pills -->
-          <div class="hero-feature-pills">
-            <span class="hero-feat-pill"><i data-lucide="zap"></i> Instant Theft Alerts</span>
-            <span class="hero-feat-pill"><i data-lucide="brain-circuit"></i> AI Anomaly Detection</span>
-            <span class="hero-feat-pill"><i data-lucide="map-pin"></i> GPS Fleet Tracking</span>
-          </div>
 
           <div class="hero-cta">
             <a href="contact.html#demo" class="btn btn-primary btn-lg">
@@ -240,147 +254,95 @@
           </div>
         </div>
 
-        <!-- Right: Dashboard Visual -->
+        <!-- Right: Achievement & Media Slider -->
         <div class="hero-visual reveal-scale">
-          <div class="hero-mockup-wrap">
-            <div class="hero-mockup">
+          <div class="hero-slider" id="hero-slider" role="region" aria-label="Awards and Media Coverage">
+            <div class="slider-viewport">
+              <div class="slider-track" id="slider-track">
 
-              <!-- App header - visible first on mobile -->
-              <div class="mockup-topbar">
-                <div class="mockup-app-brand">
-                  <div class="mockup-app-icon">
-                    <i data-lucide="flame"></i>
-                  </div>
-                  <div class="mockup-app-info">
-                    <span class="mockup-app-name">Fuel Guard X</span>
-                    <span class="mockup-app-co">by AAYUNEX Innovations</span>
+                <div class="slide">
+                  <img src="assets/wins/IDE BOOTCAMP IIT GUWAHATI 1ST PRIZE 2023 Organised by AICTE &amp; MIC MoE.jpeg"
+                       alt="1st Prize - IIT Guwahati IDE Bootcamp 2023, organised by AICTE and MIC MoE" loading="eager">
+                  <div class="slide-label">
+                    <span class="slide-label-cat">National Win</span>
+                    IIT Guwahati · 1st Prize 2023
                   </div>
                 </div>
-                <div class="mockup-topbar-right">
-                  <span class="mockup-vehicle-count">
-                    <i data-lucide="truck"></i>
-                    12 vehicles
-                  </span>
-                  <span class="mockup-live-badge">
-                    <span class="live-pulse"></span>
-                    Live
-                  </span>
-                </div>
-              </div>
 
-              <!-- Body -->
-              <div class="mockup-body">
-
-                <!-- Sidebar -->
-                <div class="mockup-sidebar">
-                  <button class="sidebar-icon-btn active" title="Dashboard">
-                    <i data-lucide="gauge"></i>
-                  </button>
-                  <button class="sidebar-icon-btn" title="Activity">
-                    <i data-lucide="activity"></i>
-                  </button>
-                  <button class="sidebar-icon-btn" title="Map">
-                    <i data-lucide="map-pin"></i>
-                  </button>
-                  <button class="sidebar-icon-btn" title="Alerts">
-                    <i data-lucide="bell"></i>
-                  </button>
-                  <button class="sidebar-icon-btn" title="Settings">
-                    <i data-lucide="settings"></i>
-                  </button>
+                <div class="slide">
+                  <img src="assets/newspaper/WhatsApp Image 2026-06-05 at 1.29.03 PM.jpeg"
+                       alt="AAYUNEX Innovations featured in media" loading="lazy">
+                  <div class="slide-label">
+                    <span class="slide-label-cat">Press</span>
+                    Media Coverage
+                  </div>
                 </div>
 
-                <!-- Main Content -->
-                <div class="mockup-main">
-                  <div class="mockup-header">
-                    <span class="mockup-title">Fleet Overview</span>
-                    <span class="mockup-status-dot"></span>
+                <div class="slide">
+                  <img src="assets/wins/SHARK TANK BITD 2.0 1st Runner Up 3100 Rs.Cash Prize 2025.jpeg"
+                       alt="1st Runner Up at Shark Tank BITD 2.0, 2025" loading="lazy">
+                  <div class="slide-label">
+                    <span class="slide-label-cat">Award</span>
+                    Shark Tank BITD · 1st Runner Up 2025
                   </div>
-
-                  <!-- KPIs -->
-                  <div class="mockup-kpis">
-                    <div class="mockup-kpi">
-                      <div class="kpi-icon blue"><i data-lucide="droplet"></i></div>
-                      <div>
-                        <div class="kpi-val">78.4L</div>
-                        <div class="kpi-label">Fuel Level</div>
-                      </div>
-                    </div>
-                    <div class="mockup-kpi">
-                      <div class="kpi-icon green"><i data-lucide="zap"></i></div>
-                      <div>
-                        <div class="kpi-val">4.2k/L</div>
-                        <div class="kpi-label">Efficiency</div>
-                      </div>
-                    </div>
-                    <div class="mockup-kpi">
-                      <div class="kpi-icon orange"><i data-lucide="shield-check"></i></div>
-                      <div>
-                        <div class="kpi-val">0</div>
-                        <div class="kpi-label">Alerts</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Chart -->
-                  <div class="mockup-chart">
-                    <div class="mockup-chart-label">
-                      <i data-lucide="bar-chart-2"></i>
-                      Consumption - Last 12h
-                    </div>
-                    <div class="mockup-chart-bars" id="hero-chart-bars">
-                      <div class="mcb"     style="--h:42%"></div>
-                      <div class="mcb alt" style="--h:68%"></div>
-                      <div class="mcb"     style="--h:50%"></div>
-                      <div class="mcb alt" style="--h:82%"></div>
-                      <div class="mcb"     style="--h:58%"></div>
-                      <div class="mcb alt" style="--h:72%"></div>
-                      <div class="mcb"     style="--h:45%"></div>
-                      <div class="mcb alt" style="--h:88%"></div>
-                      <div class="mcb"     style="--h:60%"></div>
-                      <div class="mcb alt" style="--h:76%"></div>
-                      <div class="mcb"     style="--h:48%"></div>
-                      <div class="mcb alt" style="--h:92%"></div>
-                    </div>
-                  </div>
-
-                  <!-- Live event ticker -->
-                  <div class="mockup-alert-ticker">
-                    <span class="ticker-dot"></span>
-                    <div class="ticker-track">
-                      <div class="ticker-scroll">
-                        <span class="ticker-item">GJ-01 &middot; 78.4L &middot; Normal</span>
-                        <span class="ticker-sep">/</span>
-                        <span class="ticker-item alert">MH-03 &middot; Anomaly -12L</span>
-                        <span class="ticker-sep">/</span>
-                        <span class="ticker-item">RJ-07 &middot; Refuel +45L</span>
-                        <span class="ticker-sep">/</span>
-                        <span class="ticker-item">GJ-01 &middot; 78.4L &middot; Normal</span>
-                        <span class="ticker-sep">/</span>
-                        <span class="ticker-item alert">MH-03 &middot; Anomaly -12L</span>
-                        <span class="ticker-sep">/</span>
-                        <span class="ticker-item">RJ-07 &middot; Refuel +45L</span>
-                      </div>
-                    </div>
-                  </div>
-
                 </div>
+
+                <div class="slide">
+                  <img src="assets/newspaper/WhatsApp Image 2026-06-05 at 1.29.25 PM.jpeg"
+                       alt="AAYUNEX Innovations regional press coverage" loading="lazy">
+                  <div class="slide-label">
+                    <span class="slide-label-cat">Press</span>
+                    Regional Media Feature
+                  </div>
+                </div>
+
+                <div class="slide">
+                  <img src="assets/wins/National Innovation Fest 2.0 op Jindal University 1st prize 15,000 rs cash prize 2023.jpeg"
+                       alt="1st Prize National Innovation Fest 2.0, OP Jindal University 2023" loading="lazy">
+                  <div class="slide-label">
+                    <span class="slide-label-cat">National Win</span>
+                    National Innovation Fest · 1st Prize 2023
+                  </div>
+                </div>
+
+                <div class="slide">
+                  <img src="assets/newspaper/WhatsApp Image 2026-06-05 at 1.29.02 PM.jpeg"
+                       alt="AAYUNEX in national press" loading="lazy">
+                  <div class="slide-label">
+                    <span class="slide-label-cat">Press</span>
+                    National Press Coverage
+                  </div>
+                </div>
+
+                <div class="slide">
+                  <img src="assets/wins/OP Jindal University Raigarh Technorollix 2025 NexGen startup &amp; Tech Lab 1st Prize 19,000 Rs.Cash Prize.jpeg"
+                       alt="1st Prize Technorollix 2025, OP Jindal University" loading="lazy">
+                  <div class="slide-label">
+                    <span class="slide-label-cat">Award</span>
+                    Technorollix 2025 · 1st Prize
+                  </div>
+                </div>
+
+                <div class="slide">
+                  <img src="assets/wins/IGNITION GRANT FROM CSVTU FORTE 2026.jpeg"
+                       alt="Ignition Grant from CSVTU FORTE 2026" loading="lazy">
+                  <div class="slide-label">
+                    <span class="slide-label-cat">Grant</span>
+                    CSVTU FORTE Ignition Grant 2026
+                  </div>
+                </div>
+
               </div>
             </div>
 
-            <!-- Floating status badges -->
-            <div class="hero-float-badge float-badge-1">
-              <span class="float-badge-dot green"></span>
-              System Active
-            </div>
-            <div class="hero-float-badge float-badge-2">
-              <i data-lucide="shield-check" class="float-badge-icon"></i>
-              Theft Blocked
-            </div>
-            <div class="hero-float-badge float-badge-3">
-              <i data-lucide="cpu" class="float-badge-icon"></i>
-              AI: 98.7% accurate
-            </div>
+            <button class="slider-btn slider-btn-prev" id="slider-prev" aria-label="Previous slide">
+              <i data-lucide="chevron-left"></i>
+            </button>
+            <button class="slider-btn slider-btn-next" id="slider-next" aria-label="Next slide">
+              <i data-lucide="chevron-right"></i>
+            </button>
+
+            <div class="slider-dots" id="slider-dots" role="tablist" aria-label="Slide navigation"></div>
           </div>
         </div>
 
@@ -763,6 +725,7 @@
           <ul>
             <li><a href="product.html">Fuel Guard X</a></li>
             <li><a href="features.html">Features</a></li>
+            <li><a href="model.html">3D Explorer</a></li>
             <li><a href="dashboard.html">Dashboard</a></li>
           </ul>
         </div>

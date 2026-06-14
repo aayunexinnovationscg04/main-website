@@ -18,7 +18,7 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 30% 70%, rgba(249, 115, 22, 0.08) 0%, transparent 50%);
+    radial-gradient(ellipse at 30% 70%, rgba(217, 101, 21,0.08) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -69,24 +69,25 @@
 .product-visual-box {
   width: 100%;
   max-width: 480px;
-  aspect-ratio: 1;
-  border-radius: var(--radius-lg);
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-xl);
   background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border-orange);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem;
+  padding: 0;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 20px 55px rgba(0,0,0,0.35);
 }
 
 .product-visual-box::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.08) 0%, transparent 60%);
+  background: radial-gradient(circle at 50% 50%, rgba(217, 101, 21,0.08) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -173,7 +174,6 @@
 
 .ecosystem-card:hover {
   box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
 }
 
 .ecosystem-card-icon {
@@ -249,7 +249,6 @@
 
 .tech-card:hover {
   border-color: var(--border-light);
-  transform: translateY(-2px);
 }
 
 .tech-card.tech-card-highlight {
@@ -417,7 +416,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 50%, rgba(249, 115, 22, 0.08) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 50% 50%, rgba(217, 101, 21,0.08) 0%, transparent 60%);
   pointer-events: none;
 }
 

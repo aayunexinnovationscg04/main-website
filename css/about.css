@@ -19,7 +19,7 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 50% 80%, rgba(249, 115, 22, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(217, 101, 21,0.06) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 20%, rgba(0, 83, 219, 0.04) 0%, transparent 50%);
   pointer-events: none;
 }
@@ -67,7 +67,6 @@
 
 .about-problem-card:hover {
   box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
 }
 
 .about-problem-card .card-icon {
@@ -164,7 +163,6 @@
 
 .about-team-card:hover {
   border-color: var(--border-light);
-  transform: translateY(-3px);
 }
 
 .about-team-photo {
@@ -250,7 +248,6 @@
 
 .partner-card:hover {
   border-color: var(--border-light);
-  transform: translateY(-2px);
 }
 
 .partner-card img {

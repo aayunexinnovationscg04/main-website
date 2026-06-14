@@ -16,7 +16,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 70%, rgba(249, 115, 22, 0.06) 0%, transparent 50%);
+  background: radial-gradient(ellipse at 50% 70%, rgba(217, 101, 21,0.06) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -200,7 +200,6 @@
 
 .contact-info-card:hover {
   box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
 }
 
 .contact-info-icon {
@@ -285,7 +284,6 @@
   border-color: var(--accent-orange);
   background-color: var(--accent-orange-glow);
   color: var(--accent-orange);
-  transform: translateY(-2px);
 }
 
 /* Form Success Message */

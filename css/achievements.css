@@ -16,7 +16,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 70%, rgba(249, 115, 22, 0.06) 0%, transparent 50%);
+  background: radial-gradient(ellipse at 50% 70%, rgba(217, 101, 21,0.06) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -46,7 +46,6 @@
 
 .ach-card:hover {
   border-color: var(--border-light);
-  transform: translateY(-4px);
   box-shadow: var(--shadow-md);
 }
 
@@ -132,7 +131,6 @@
 
 .media-card:hover {
   box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
 }
 
 .media-card-image {
@@ -183,7 +181,6 @@
 }
 
 .partners-logo-grid img:hover {
-  transform: translateY(-3px);
   filter: drop-shadow(0 4px 8px rgba(245,115,32,0.18));
 }
 
@@ -194,7 +191,7 @@
   padding: 4rem;
   border-radius: var(--radius-lg);
   background: linear-gradient(135deg, var(--accent-orange-glow) 0%, rgba(0, 83, 219, 0.08) 100%);
-  border: 1px solid rgba(249, 115, 22, 0.15);
+  border: 1px solid rgba(217, 101, 21,0.15);
 }
 
 .achievements-cta h2 { margin-bottom: 1rem; }

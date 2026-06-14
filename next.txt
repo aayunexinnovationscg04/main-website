@@ -1,0 +1,3 @@
+[DONE] the navbar in mobile is taking almost of the page , also the color mode switcher is kinda square i am not liking switcher should be attarctive like a button or something
+[DONE] can we use some other navbar for the mobile and all to make it look as good as possible
+
